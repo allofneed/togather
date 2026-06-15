@@ -21,7 +21,7 @@ body {
     max-width: 430px;
     min-height: 100vh;
     margin: 0 auto;
-    background-color: #F0F88F;
+    background-color: #F0F8FF;
     background-image: var(--bg-image, none); 
     background-size: 100% 100%; /* PC 화면에서도 일러스트가 잘리지 않게 100% 압축 고정 */
     background-position: center;
