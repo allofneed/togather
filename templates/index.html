@@ -3,15 +3,18 @@
 
 {% block css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-{% endblock %}s
+{% endblock %}
 
 {% block header %}
   <div class = "header-content">
-    <div class = "logo">
+    <div class = "header-left" onclick="location.href='{{ url_for('logout') }}'" >
+      Logout
+    </div>
+    <div class = "logo-center">
       <img src="{{ url_for('static', filename='img/logo_summer(none_back).svg')}}" alt="투게더 로고" class="logo-image">
     </div>
     <div class = "user-info">
-      
+      MY
     </div>
   </div>
 {% endblock %}
