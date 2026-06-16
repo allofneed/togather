@@ -1,31 +1,35 @@
 <div class="navigation">
   <ul>
-    <li class="list active">
-      <a href="#">
-        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
-        <span class="text">홈</span>
-      </a>
-    </li>
-    <li class="list">
-      <a href="#">
+    <li class="list {% if request.endpoint == 'mypage' %}active{% endif %}">
+      <a href="{{url_for('mypage')}}">
         <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
         <span class="text">마이페이지</span>
       </a>
     </li>
-    <li class="list">
-      <a href="#">
+
+    <li class="list {% if request.endpoint == 'message' %}active{% endif %}">
+      <a href="{{ url_for('message') }}">
         <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
         <span class="text">메세지</span>
       </a>
     </li>
-    <li class="list">
-      <a href="#">
+
+    <li class="list {% if request.endpoint == 'index' %}active{% endif %}">
+      <a href="{{ url_for('index') }}">
+        <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+        <span class="text">홈</span>
+      </a>
+    </li>
+
+    <li class="list {% if request.endpoint == 'picture' %}active{% endif %}">
+      <a href="{{ url_for('picture')}}">
         <span class="icon"><ion-icon name="image-outline"></ion-icon></span>
         <span class="text">사진</span>
       </a>
     </li>
-    <li class="list">
-      <a href="#">
+
+    <li class="list {% if request.endpoint == 'qr' %}active{% endif %}">
+      <a href="{{url_for('qr')}}">
         <span class="icon"><ion-icon name="qr-code-outline"></ion-icon></span>
         <span class="text">QR코드</span>
       </a>

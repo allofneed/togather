@@ -12,7 +12,7 @@ def login():
 def login_process():
     user_input = request.form.get('order_number')
     print(f"사용자가 입력한 번호 : {user_input}")    
-    return redirect(url_for('main_page'))
+    return redirect(url_for('index'))
 
 @app.route('/logout')
 def logout():
@@ -20,7 +20,7 @@ def logout():
     return redirect(url_for('login'))
 
 @app.route('/index')
-def main_page():
+def index():
     return render_template('index.html')
 
 @app.route('/reservationinf')
@@ -30,6 +30,18 @@ def reservation_inf():
 @app.route('/message')
 def message():
     return render_template('pages/message.html')
+
+@app.route('/mypage')
+def mypage():
+    return render_template('pages/mypage.html')
+
+@app.route('/picture')
+def picture():
+    return render_template('pages/picture.html')
+
+@app.route('/qr')
+def qr():
+    return render_template('pages/qr.html')
 
 if __name__ == '__main__':
     from livereload import Server

@@ -1,0 +1,37 @@
+{% extends 'layout/common_layout.html' %}
+{% block title %} 메인 페이지 레이아웃 {% endblock %}
+
+
+{% block header %}
+  <div class = "header-content">
+
+    <div class = "header-left">
+      {% if request.endpoint != 'index' %}
+        <span onclick="history.back()">뒤로가기</span>
+      {% else %}
+        <span onclick="location.href='{{ url_for('logout')}}'">Logout</span>
+      {% endif %}
+    </div>
+
+    <div class = "logo-center">
+      <img src = "{{ url_for('static', filename = 'img/logo_summer(none_back).svg')}}" alt = "투게더 로고" class = "logo-image">
+    </div>
+
+    <div class = "user-info">
+      MY
+    </div>
+
+  </div>
+  {% endblock %}
+
+  {% block content %}
+  {% endblock %}
+
+  {% block bottom_nav %}
+    {% include 'layout/bottom_nav.html' %}
+  {% endblock %}
+
+  {% block script %}
+    <script src="{{ url_for('static', filename='js/bottom_nav.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+  {% endblock %}

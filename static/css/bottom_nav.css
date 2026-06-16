@@ -1,18 +1,5 @@
-.navigation {
-    width: 100%;
-    max-width: 430px;
-    height: 70px;
-    background: #FFFFFF;
-    position: fixed; 
-    bottom: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 -5px 20px rgba(11, 92, 117, 0.08);
-    z-index: 9999; 
-}
+.navigation {width: 100%; max-width: 430px; height: 70px; background: #FFFFFF; position: fixed; bottom: 0px;
+left: 50%; transform: translateX(-50%); display: flex; justify-content: center; align-items: center; box-shadow: 0 -5px 20px rgba(11, 92, 117, 0.08); z-index: 9999; }
 
 .navigation ul {
     display: flex;
