@@ -1,6 +1,77 @@
-{% extends 'layout/main_layout.html' %} 
+{% extends 'layout/main_layout.html' %}
+{% block title %} 메인페이지 {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+{% endblock %}
+
 {% block content %}
-  <div>
-    <h2>안녕하세요! 메인 화면입니다.</h2>
-  </div>
+<div class="main-content-container">
+    <div class="map-container" id = "map">
+    </div>
+
+    <div class="content-container">
+      <div class = "paw-icon-wrapper">
+        <img src ="{{url_for('static', filename='svg/dog_paw.svg')}}" alt="발바닥">
+      </div>
+      <div class="user-card-title">
+        <h3>시흥시님, 어디로 가시나요?</h3>
+        <div class = "user-card-sub">
+          <p style="color: #2E92E0; font-size: 14px;">내 반려견과 함꼐 하는 데이트 ♥</p>
+          <button class = "my-position-btn"> 내 위치 </button>
+        </div>
+      </div>
+
+      <div class = "search-bar">
+        <input type = "text" class = "search" placeholder="장소, 카페, 공원 등을 검색해보세요">
+      </div>
+
+      <div class = "store-category">
+        <div class = "catery-container">
+          <h3>카페·식당</h3>
+          <button class = "all-category"> 전체보기 ></button>
+        </div>
+      </div>
+
+      <div class = "store-card-container">
+        <div class = "store-card">
+          <img src = "store.png" alt = "한울공원">
+          <div class = "store-inf">
+            <h3>한울공원</h3>
+            <P style ="font-size: 9px;">넓은 잔디 밭에서 뛰어 놀기 좋아요</P>
+          </div>
+        </div>
+
+        <div class = "store-card">
+          <img src = "store.png" alt = "한울공원">
+          <div class = "store-inf">
+            <h3>한울공원</h3>
+            <P style ="font-size: 9px;">넓은 잔디 밭에서 뛰어 놀기 좋아요</P>
+          </div>
+        </div>
+
+        <div class = "store-card">
+          <img src = "store.png" alt = "한울공원">
+          <div class = "store-inf">
+            <h3>한울공원</h3>
+            <P style ="font-size: 9px;">넓은 잔디 밭에서 뛰어 놀기 좋아요</P>
+          </div>
+        </div>
+      </div>
+
+      <div class = "notice">
+        <button class = "notice-btn">
+          <p>로고</p>
+          <
+        </button>
+      </div>
+
+    </div>
+
+</div>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/bottom_nav.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 {% endblock %}

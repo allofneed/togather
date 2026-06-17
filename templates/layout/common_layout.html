@@ -8,6 +8,7 @@
   <meta property="og:image" content="{{ url_for('static', filename='img/togater_logo.png', _external=True)}}">
 
   <title>{% block title %}common layout{% endblock %}</title>
+  {% block head %}{% endblock %}
 
   <link rel = "stylesheet" href = "{{url_for('static', filename = 'css/style.css')}}">
   <link rel = "stylesheet" href = "{{url_for('static', filename = 'css/common_layout.css')}}">
@@ -22,45 +23,36 @@
     })(window, document, "clarity", "script", "x06a1v1pv8");
 </script>
 
-  {% block css %}{% endblock %}
+  {% block css %}
+  {% endblock %}
 </head>
 
 <body>
-  <div class = "mobile-container">
+  <div class="mobile-container">
+    
+    <header>
+      <div class="header">{% block header %}{% endblock %}</div>
+    </header>
 
-  <header>
-    <div class = "header">
-      {% block header %}
-      {% endblock %}
+    <div class = "scroll-wrapper">
+      <main class="content-area">
+        {% block content %}{% endblock %}
+      </main>
+
+      <footer class = "footer-area">
+        {% include 'layout/footer_layout.html' %}
+      </footer>
     </div>
-  </header>
 
-  <main class = "content-area">
-    {% block content %}
-    {% endblock %}
-  </main>
-
-  <div class = "footer">
-    <p>
-      <a href="#" class="footer-link" id="open-terms">[이용안내]</a>|
-      <a href="#" class="footer-link" id="open-privacy">[개인정보처리방침]</a>|
-      <a href="#" class="footer-link" id="open-copyright">[저작권정책]</a>
-      <br>
-      사회적협동조합 하루
-      <a href="tel:070-7585-1136">문의전화 : 070-7585-1136</a><br>
-      © 2026 TOGATHER. All rights reserved.
-    </p>
-  </div>
-
-    {% block bottom_nav %}
-    {% endblock %}
+    <nav class="bottom-nav-container">
+      {% block bottom_nav %}{% endblock %}
+    </nav>
 
     {% include 'modal/open_terms.html' %}
     {% include 'modal/open_privacy.html' %}
     {% include 'modal/open_copyright.html' %}
+    
   </div>
-
-
 
   <script src = "{{url_for('static', filename='js/common_layout.js')}}"></script>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
