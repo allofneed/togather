@@ -5,6 +5,12 @@
 <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
 {% endblock %}
 
+{% block header %}
+<div class = "logo-center">
+  <img src = "{{ url_for('static', filename = 'img/logo_summer(none_back).svg')}}" alt = "투게더 로고" class = "logo-image">
+</div>
+{% endblock %}
+
 {% block content %}
 <div class="main-content-container">
     <div class="map-container" id = "map">
@@ -19,7 +25,7 @@
         <h3>시흥시님, 어디로 가시나요?</h3>
         <div class = "user-card-sub">
           <p style="color: #2E92E0; font-size: 14px;">내 반려견과 함꼐 하는 데이트 ♥</p>
-          <button class = "my-position-btn"> 내 위치 </button>
+          <button class = "my-position-btn" onclick ="location.href='{{ url_for('logout')}}'"> 로그아웃 </button>
         </div>
       </div>
 
