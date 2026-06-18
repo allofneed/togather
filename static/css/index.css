@@ -5,8 +5,9 @@ gap: 20px; height: 100vh; position: relative;}
 .top-curve{position: absolute; top: -45px; left:0; width: 100%; height: 60px; background-image: url('../svg/top-curve.svg'); background-size: 100% 100%;
 background-repeat: no-repeat; background-position: bottom;}
 .paw-icon-wrapper{position: absolute; top: -50px; left: 50%; transform: translateX(-50%); border:none; cursor: pointer; -webkit-tap-highlight-color: transparent;
-width: 60px; height: 60px; border-radius: 50%; background-color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+width: 60px; height: 60px; border-radius: 50%; background-color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.2); transition: transform 0.1s ease-in-out;
 display: flex; justify-content: center; align-items: center; z-index: 10; padding: 10px;}
+.paw-icon-wrapper:active{transform: translateX(-50%) scale(0.92);}
 
 .user-card-sub{display: flex; justify-content: space-between;}
 .my-position-btn{border:none; padding: 0 10px; border-radius: 20px; background-color: #1AADB3; color: white;}
