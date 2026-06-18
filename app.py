@@ -1,20 +1,8 @@
-import os
-from dotenv import load_dotenv
 from flask import Flask, render_template, jsonify, request, redirect, url_for, session
-from supabase import create_client, Client
-
-load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
-SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_KEY = os.getenv("SUPABASE_KEY")
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
-
-# =========================================================================
-# 2. 라우트
-# =========================================================================
+app.secret_key = "together_secret_key_1234"
 
 @app.route('/')
 def login():
@@ -23,18 +11,8 @@ def login():
 @app.route('/login', methods=['POST'])
 def login_process():
     user_input = request.form.get('order_number')
-    print(f"사용자가 입력한 번호 : {user_input}")
-
-    try:
-        response = supabase.table('users').select("*").eq('user_number', user_input).execute()
-
-        if len(response.data) > 0:
-            session['user'] = user_input
-            return redirect(url_for('index'))
-        else:
-            return "<script>alert('등록되지 않은 주문번호입니다. 다시 확인해 주세요.'); history.back();</script>"
-    except Exception as e:
-        return f"<script>alert('서버 연결 에러가 발생했습니다: {str(e)}'); history.back();</script>"
+    print(f"사용자가 입력한 번호 : {user_input}")    
+    return redirect(url_for('index'))
 
 @app.route('/logout')
 def logout():
