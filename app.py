@@ -35,6 +35,7 @@ def login_process():
 
         if len(response.data) > 0:
             session['user'] = user_input
+            session['user_name'] = response.data[0]['user_name']
             return redirect(url_for('index'))
         else:
             return "<script>alert('등록되지 않은 주문번호입니다.'); history.back();</script>"
@@ -48,7 +49,8 @@ def logout():
 
 @app.route('/index')
 def index():
-    return render_template('index.html')
+    current_user_name = session.get('user_name', '고객')
+    return render_template('index.html',user_name=current_user_name)
 
 @app.route('/reservationinf')
 def reservation_inf():
@@ -74,4 +76,4 @@ if __name__ == '__main__':
     from livereload import Server
     app.debug = True
     server = Server(app.wsgi_app)
-    server.serve(port=5003)
+    server.serve(port=5002)

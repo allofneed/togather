@@ -22,7 +22,7 @@
         <img src ="{{url_for('static', filename='svg/dog_paw.svg')}}" alt="발바닥">
       </button>
       <div class="user-card-title">
-        <h3>시흥시님, 어디로 가시나요?</h3>
+        <h3>{{user_name}}님, 어디로 가시나요?</h3>
         <div class = "user-card-sub">
           <p style="color: #2E92E0; font-size: 14px;">내 반려견과 함께 하는 데이트 ♥</p>
           <button class = "my-position-btn" onclick ="location.href='{{ url_for('logout')}}'"> 로그아웃 </button>
