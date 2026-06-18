@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_레이어_2" data-name="레이어 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 374.01 38.19">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        filter: url(#drop-shadow-1);
+      }
+    </style>
+    <filter id="drop-shadow-1" x="0" y="0" width="374.01" height="38.19" filterUnits="userSpaceOnUse">
+      <feOffset dx="1" dy="1"/>
+      <feGaussianBlur result="blur" stdDeviation="2.01"/>
+      <feFlood flood-color="#000" flood-opacity=".44"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="_레이어_1-2" data-name="레이어 1">
+    <path class="cls-1" d="M0,38.19h374.01v-10.6h-.09c.05-.58.09-1.16.09-1.74,0-8.46-5.45-16.95-14.24-21.61-4.84-2.57-10.52-4.03-16.43-4.22-5.97-.2-11.73.91-16.67,3.21-6.47,3.01-12.47,5.36-18.27,9.04-10.53,6.68-20.48,6.45-31.02,6.45H96.64c-10.54,0-20.49.23-31.02-6.45-5.8-3.68-11.8-6.03-18.27-9.04C42.4.93,36.64-.18,30.67.02c-5.91.2-11.59,1.66-16.43,4.22C4.85,9.22-.72,18.59.09,27.6h-.09v10.6Z"/>
+  </g>
+</svg>
