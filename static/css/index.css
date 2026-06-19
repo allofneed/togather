@@ -11,9 +11,11 @@ width: 60px; height: 60px; border-radius: 50%; background-color: white; box-shad
 display: flex; justify-content: center; align-items: center; z-index: 10; padding: 10px;}
 .paw-icon-wrapper:active{transform: translateX(-50%) scale(0.92);}
 
-.user-card-sub{display: flex; justify-content: space-between;}
-.my-position-btn{border:none; padding: 0 10px; border-radius: 20px; background-color: #1AADB3; color: white; cursor: pointer;}
-.search{width: 100%; border-radius: 9px; height: 40px; padding: 0 20px; border: 3px solid #2d93e0;}
+.user-card-sub{display: flex; justify-content: space-between; align-items: center; flex:1; margin-top: 5px;}
+.user-card-sub p{white-space: nowrap; margin:0;}
+.admin-btn,.my-position-btn{border:none; padding: 6px 10px; border-radius: 20px; background-color: #1AADB3; color: white; cursor: pointer;
+white-space: nowrap; font-size:12px; font-weight: 800;}
+.admin-btn{margin-right: 2px;}
 
 .catery-container{display: flex; justify-content:space-between;}
 .all-category{border: none; background-color: transparent; font-weight: 400;}

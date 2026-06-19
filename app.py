@@ -33,14 +33,25 @@ def login_process():
     try:
         response = supabase.table('users').select("*").eq('user_number', user_input_num).execute()
 
+        print(f"--- DB 응답 결과 확인 ---")
+        print(response.data) 
+        print(f"------------------------")
+
         if len(response.data) > 0:
             session['user'] = user_input
             session['user_name'] = response.data[0]['user_name']
+            session['user_role'] = response.data[0].get('user_role', 'user')
             return redirect(url_for('index'))
         else:
             return "<script>alert('등록되지 않은 주문번호입니다.'); history.back();</script>"
     except Exception as e:
         return f"<script>alert('서버 에러가 발생했습니다: {str(e)}'); history.back();</script>"
+    
+@app.route('/admin/dashboard')
+def admin_dashboard():
+    if session.get('user_role') != 'admin':
+        return "접근 권한이 없습니다.", 403
+    return render_template('admin/dashboard.html')
 
 @app.route('/logout')
 def logout():
@@ -50,8 +61,9 @@ def logout():
 @app.route('/index')
 def index():
     current_user_name = session.get('user_name', '고객')
+    current_user_role = session.get('user_role', 'user')
     naver_key = os.getenv("NAVER_MAP_CLIENT_ID")
-    return render_template('index.html',user_name=current_user_name,naver_map_id=naver_key)
+    return render_template('index.html',user_name=current_user_name,user_role=current_user_role,naver_map_id=naver_key)
 
 @app.route('/reservationinf')
 def reservation_inf():
