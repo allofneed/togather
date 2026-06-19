@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     var mapOptions = {
-        center: new naver.maps.LatLng(37.3595704, 127.105399),
+        center: new naver.maps.LatLng(37.35320025573827, 126.70152103090712),
         zoom: 15
     };
     var map = new naver.maps.Map('map', mapOptions);
@@ -19,21 +19,32 @@ document.addEventListener("DOMContentLoaded", function() {
                 var lat = position.coords.latitude;
                 var lng = position.coords.longitude;
                 var myPosition = new naver.maps.LatLng(lat, lng);
+                
+                var heading = position.coords.heading || 0; 
+
+                var markerHtml = `
+                    <div style="transform: rotate(${heading}deg); width: 40px; height: 40px; transition: transform 0.3s ease-out;">
+                        <img src="/static/svg/dog_paw.svg" style="width: 100%; height: 100%;">
+                    </div>
+                `;
 
                 if (!myLocationMarker) {
                     myLocationMarker = new naver.maps.Marker({
                         position: myPosition,
                         map: map,
                         icon: {
-                            url: '/static/svg/dog_paw.svg', 
+                            content: markerHtml,
                             size: new naver.maps.Size(40, 40),
-                            scaledSize: new naver.maps.Size(40, 40),
-                            origin: new naver.maps.Point(0, 0),
-                            anchor: new naver.maps.Point(20, 20) 
+                            anchor: new naver.maps.Point(20, 20)
                         }
                     });
                 } else {
                     myLocationMarker.setPosition(myPosition);
+                    myLocationMarker.setIcon({
+                        content: markerHtml,
+                        size: new naver.maps.Size(40, 40),
+                        anchor: new naver.maps.Point(20, 20)
+                    });
                 }
 
                 if (isTracking) {
