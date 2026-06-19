@@ -50,7 +50,8 @@ def logout():
 @app.route('/index')
 def index():
     current_user_name = session.get('user_name', '고객')
-    return render_template('index.html',user_name=current_user_name)
+    naver_key = os.getenv("NAVER_MAP_CLIENT_ID")
+    return render_template('index.html',user_name=current_user_name,naver_map_id=naver_key)
 
 @app.route('/reservationinf')
 def reservation_inf():

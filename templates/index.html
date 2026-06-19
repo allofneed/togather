@@ -1,6 +1,10 @@
 {% extends 'layout/main_layout.html' %}
 {% block title %} 메인페이지 {% endblock %}
 
+{% block head %}
+<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId={{ naver_map_id }}"></script>
+{% endblock %}
+
 {% block css %}
 <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
 {% endblock %}
