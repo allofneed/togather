@@ -12,9 +12,9 @@ display: flex; justify-content: center; align-items: center; z-index: 10; paddin
 .paw-icon-wrapper:active{transform: translateX(-50%) scale(0.92);}
 
 .user-card-sub{display: flex; justify-content: space-between; width: 100%; box-sizing: border-box; align-items: center; flex:1; margin-top: 5px;}
-.user-card-sub p{white-space: nowrap; margin:0;}
-.admin-btn,.my-position-btn{border:none; padding: 6px 10px; border-radius: 20px; background-color: #1AADB3; color: white; cursor: pointer;
-white-space: nowrap; font-size:12px; font-weight: 800;}
+.user-card-sub p{white-space: nowrap; margin:0; flex:1; min-width: 0; overflow: hidden; text-overflow: ellipsis;}
+.admin-btn,.my-position-btn{border:none; padding: 6px 8px; border-radius: 20px; background-color: #1AADB3; color: white; cursor: pointer;
+white-space: nowrap; font-size:12px; font-weight: 800; flex-shrink: 0;}
 .admin-btn{margin-right: 2px;}
 
 .catery-container{display: flex; justify-content:space-between;}
