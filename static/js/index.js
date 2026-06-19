@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var myLocationMarker = null; 
     var watchId = null;
     var isTracking = true; 
-    var trailMarkers = []; 
+
     var lastRecordedPosition = null;
 
     naver.maps.Event.addListener(map, 'dragstart', function() {
@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 var lat = position.coords.latitude;
                 var lng = position.coords.longitude;
                 var myPosition = new naver.maps.LatLng(lat, lng);
-                
                 var heading = position.coords.heading || 0; 
 
                 var markerHtml = `
@@ -71,12 +70,10 @@ document.addEventListener("DOMContentLoaded", function() {
                             }
                         });
 
-                        trailMarkers.push(trailMarker); 
+                        setTimeout(function() {
+                            trailMarker.setMap(null);
+                        }, 5000);
 
-                        if (trailMarkers.length > 4) {
-                            var oldMarker = trailMarkers.shift(); 
-                            oldMarker.setMap(null);
-                        }
                         lastRecordedPosition = myPosition;
                     }
                 }
