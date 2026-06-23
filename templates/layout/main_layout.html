@@ -4,11 +4,12 @@
 
 {% block css %}
  <link rel = "stylesheet" href = "{{url_for('static', filename = 'css/index.css')}}">
+ <link rel = "stylesheet" href = "{{url_for('static', filename = 'css/header.css')}}">
 {% endblock %}
 
 
   {% block header %}
-    {% include 'layout/header_layout.html' %}  
+    {% include 'layout/header_layout.html' %}
   {% endblock %}
 
   {% block content %}

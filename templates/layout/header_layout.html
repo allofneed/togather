@@ -1,20 +1,14 @@
-<div class = "header-content">
+<div class = "header-container">
+  <div class = 'header-side left'>
+    <img src = "{{url_for('static', filename='svg/arrow.svg')}}" alt="뒤로가기" class="back-arrow">
+  </div>
 
-    <div class = "header-left">
-      {% if request.endpoint != 'index' %}
-        <span onclick="history.back()">뒤로가기</span>
-      {% else %}
-        <span onclick="location.href='{{ url_for('logout')}}'">Logout</span>
-      {% endif %}
-    </div>
+  <div class = 'header-title'>
+    <span>{{header_title if header_title else "투개더"}}</span>
+  </div>
 
-    <div class = "logo-center">
-      <img src = "{{ url_for('static', filename = 'img/logo_summer(none_back).svg')}}" alt = "투게더 로고" class = "logo-image">
-    </div>
-
-    <div class = "user-info">
-      MY
-    </div>
-
+  <div class = 'header-side right'>
+    <img src = "{{url_for('static', filename='svg/menu.svg')}}" alt="메뉴" class="menu-icon">
   </div>
   
+</div>
