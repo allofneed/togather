@@ -2,11 +2,13 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, render_template, jsonify, request, redirect, url_for, session
 from supabase import create_client, Client
+from routes.admin import admin_bp
 
 load_dotenv()
-
 app = Flask(__name__)
 app.secret_key = os.getenv("FLASK_SECRET_KEY")
+
+app.register_blueprint(admin_bp)
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
@@ -45,14 +47,6 @@ def login_process():
     except Exception as e:
         return f"<script>alert('서버 에러가 발생했습니다: {str(e)}'); history.back();</script>"
     
-@app.route('/admin/dashboard')
-def admin_dashboard():
-    if session.get('user_role') != 'admin':
-        return "접근 권한이 없습니다.", 403
-    
-    current_user_name = session.get('user_name', '고객')
-    return render_template('admin/dashboard.html', user_name=current_user_name)
-
 @app.route('/logout')
 def logout():
     session.clear()
