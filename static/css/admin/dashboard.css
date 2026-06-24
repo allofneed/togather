@@ -1,0 +1,13 @@
+body { background-color: #F4F5F7; margin: 0; }
+.admin-profile { padding: 30px 20px; }
+.greeting-text { color: #8F9BB3; font-size: 14px; font-weight: 500; }
+.user-name { color: #1B254B; font-size: 26px; font-weight: 800; margin: 4px 0 0 0; }
+.grid-menu { display: grid; grid-template-columns: repeat(3, 1fr); background-color: #FFFFFF; border-radius: 16px; margin: 0 20px 30px 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); overflow: hidden; }
+.grid-item { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px 10px; text-decoration: none; color: #374151; border-bottom: 1px solid #F3F4F6; border-right: 1px solid #F3F4F6; transition: background-color 0.1s; }
+.grid-item:active { background-color: #F9FAFB; }
+.grid-item:nth-child(3n) { border-right: none; }
+.grid-item:nth-last-child(-n+3) { border-bottom: none; }
+.grid-icon { font-size: 26px; margin-bottom: 12px; }
+.grid-item span { font-size: 13px; font-weight: 600; }
+.notice-btn-group { display: flex; gap: 12px; margin: 0 20px 40px 20px; }
+.notice-btn { flex: 1; background-color: #FFFFFF; color: #4B5563; padding: 16px 0; text-align: center; border-radius: 12px; font-size: 14px; font-weight: 600; text-decoration: none; border: 1px solid #E5E7EB; }

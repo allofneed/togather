@@ -30,7 +30,7 @@
         <div class = "user-card-sub">
           <p style="color: #2E92E0; font-size: 14px;">내 반려견과 함께 하는 데이트 ♥</p>
           {% if session['user_role'] == 'admin' %}
-          <button class="admin-btn" onclick="location.href='{{ url_for('admin_dashboard') }}'">관리자 페이지</button>
+          <a class="admin-btn" onclick="location.href='{{ url_for('admin_dashboard') }}'">관리자 페이지</a>
           {% endif %}
           <button class = "my-position-btn" onclick ="location.href='{{ url_for('logout')}}'"> 로그아웃 </button>
         </div>

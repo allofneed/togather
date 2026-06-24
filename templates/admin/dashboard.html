@@ -1,3 +1,48 @@
 {% extends 'layout/main_layout.html' %}
 {% block title %} 관리자 페이지 {% endblock %}
+
+{% block css %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/admin/dashboard.css')}}">
+{% endblock %}
+
 {% set header_title = "관리자 페이지" %}
+
+{% block content %}
+<div class="admin-profile">
+  <span class="greeting-text">오늘도 좋은 하루 되세요!</span>
+  <p class="user-name">{{user_name}}님</p>
+</div>
+
+<div class="grid-menu">
+  <a href="#" class="grid-item">
+    <div class="grid-icon">🏪</div>
+    <span>스토어 등록</span>
+  </a>
+  <a href="#" class="grid-item">
+    <div class="grid-icon">📢</div>
+    <span>배너 등록</span>
+  </a>
+  <a href="#" class="grid-item">
+    <div class="grid-icon">🔄</div>
+    <span>반납관리</span>
+  </a>
+  <a href="#" class="grid-item">
+    <div class="grid-icon">👤</div>
+    <span>탑승자 관리</span>
+  </a>
+  <a href="#" class="grid-item">
+    <div class="grid-icon">💰</div>
+    <span>매출 내역</span>
+  </a>
+  <a href="#" class="grid-item">
+    <div class="grid-icon">📊</div>
+    <span>통계 확인</span>
+  </a>
+</div>
+
+<div class="notice-btn-group">
+  <a href="#" class="notice-btn">고객센터</a>
+  <a href="#" class="notice-btn">개발현황</a>
+</div>
+{% endblock %}
