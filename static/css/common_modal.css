@@ -54,5 +54,5 @@ border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); margin-bottom: 4px
 #faq-modal .notice-list li:last-child { margin-bottom: 0; }
 
 /* 영상 css */
-.tab-content { border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); overflow: hidden; background-color: #ffffff; padding: 16px; margin-bottom: 20px; }
-.reservation-link-btn {display: inline-block; width: 100%; text-align: center; background-color: #2db400; padding: 12px; font-size: 14px; font-weight: 700; text-decoration: none; color: white; border-radius: 10px;}
+#checkwaynum .tab-content { border: 1px solid rgba(0, 0, 0, 0.08); border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); overflow: hidden; background-color: #ffffff; padding: 16px; margin-bottom: 20px; }
+#checkwaynum .reservation-link-btn {display: inline-block; width: 100%; text-align: center; background-color: #2db400; padding: 12px; font-size: 14px; font-weight: 700; text-decoration: none; color: white; border-radius: 10px;}

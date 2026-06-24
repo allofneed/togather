@@ -1,5 +1,30 @@
 {% extends 'layout/main_layout.html' %}
 {% block title %} 스토어 등록 {% endblock %}
 
+{% block css %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/admin/register_store.css')}}">
+{% endblock %}
+
 {% set header_title = "스토어 등록" %}
 
+{% block content %}
+<div class = "tab-container">
+  <button type ="button" class = "tab-btn active" data-tab="registered-store-list">운영 목록</button>
+  <button type ="button" class = "tab-btn" data-tab="register-store">+ 신규 등록</button>
+</div>
+
+<div class = "tab-content-container">
+  <div id = "registered-store-list" class="tab-content" >
+    <h3>기존 등록 된 스토어 리스트</h3>
+  </div>
+
+  <div id = "register-store" class="tab-content">
+
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+{{super()}}<script src="{{ url_for('static', filename='js/admin/register.js')}}"></script>
+{% endblock %}
