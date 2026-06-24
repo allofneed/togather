@@ -3,3 +3,50 @@
 .tab-btn.active { color: #222222; font-weight: bold; border-bottom: 2px solid #222222; }
 .tab-content { display: none; }
 .tab-content.active { display: block; animation: fadeInFAQ 0.3s ease forwards; }
+
+.tab-container { 
+    display: flex; gap: 0; border-bottom: 2px solid #f1f1f1; margin-bottom: 20px; width: 100%; 
+}
+.tab-btn { 
+    flex: 1; padding: 12px 5px; font-size: 14px; font-weight: 500; border: none; background: transparent; color: #aaaaaa; cursor: pointer; text-align: center; transition: all 0.2s ease; position: relative; bottom: -2px; border-bottom: 2px solid transparent; 
+}
+.tab-btn.active { 
+    color: #222222; font-weight: bold; border-bottom: 2px solid #222222; 
+}
+
+/* --- 탭 내용물 전환 로직 --- */
+.tab-content { 
+    display: none; /* 기본적으로 모두 숨김 */
+}
+.tab-content.active { 
+    display: block; /* active가 붙은 놈만 노출 */
+    animation: fadeInFAQ 0.3s ease forwards; 
+}
+
+/* --- 운영 목록 (카드) 스타일 --- */
+.store-card {
+    border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 8px;
+}
+.store-badge {
+    font-size: 12px; color: #1AADB3; font-weight: bold; display: block; margin-bottom: 5px;
+}
+.store-card h4 {
+    margin: 0; font-size: 16px; color: #333;
+}
+.empty-message {
+    color: #888; text-align: center; padding: 20px;
+}
+
+/* --- 신규 등록 (폼) 스타일 --- */
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block; font-size: 14px; font-weight: bold; margin-bottom: 5px; color: #333;
+}
+.form-group input, .form-group select {
+    width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-family: inherit;
+}
+.submit-btn {
+    width: 100%; background: #1AADB3; color: white; border: none; padding: 15px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 10px;
+}

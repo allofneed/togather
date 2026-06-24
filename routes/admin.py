@@ -1,3 +1,4 @@
+import os
 from flask import Blueprint, render_template, session, redirect, url_for, request
 
 admin_bp = Blueprint('admin', __name__, url_prefix='/admin')
@@ -12,9 +13,15 @@ def admin_dashboard():
     current_user_name = session.get('user_name', '고객')
     return render_template('admin/dashboard.html', user_name=current_user_name)
 
-@admin_bp.route('/register_store')
+@admin_bp.route('/register_store', methods = ['GET', 'POST'])
 def register_store():
-    return render_template('admin/register_store.html')
+    naver_key = os.getenv("NAVER_MAP_CLIENT_ID")
+    if request.method =='POST':
+        store_name=request.form.get('store_name')
+        store_category=request.form.get('store_category')
+
+        print(f"DB 저장 완료: {store_name} ({store_category})")
+    return render_template('admin/register_store.html', naver_map_id=naver_key)
 
 @admin_bp.route('/register_banner')
 def register_banner():
