@@ -15,11 +15,11 @@
 </div>
 
 <div class="grid-menu">
-  <a href="#" class="grid-item">
+  <a href="{{url_for('admin.register_store')}}" class="grid-item">
     <div class="grid-icon">🏪</div>
     <span>스토어 등록</span>
   </a>
-  <a href="#" class="grid-item">
+  <a href="{{url_for('admin.register_banner')}}" class="grid-item">
     <div class="grid-icon">📢</div>
     <span>배너 등록</span>
   </a>
@@ -43,6 +43,6 @@
 
 <div class="notice-btn-group">
   <a href="#" class="notice-btn">고객센터</a>
-  <a href="#" class="notice-btn">개발현황</a>
+  <a href="{{url_for('admin.develop_note')}}" class="notice-btn">개발현황</a>
 </div>
 {% endblock %}
