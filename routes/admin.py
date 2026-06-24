@@ -14,4 +14,4 @@ def admin_dashboard():
 def add_store():
     if session.get('user_role') != 'admin':
         return"접근 권한이 없습니다.", 403
-    return render_template('admin/add_store.html')``
+    return render_template('admin/add_store.html')
