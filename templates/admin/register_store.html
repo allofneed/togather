@@ -27,11 +27,42 @@
   </div>
 
   <div id="register-store" class="tab-content">
+
+    <div class = "preview-container">
+      <div class = "preview-register-store">
+
+        <div class = "preview-store-img">
+          <span class ="preview-bage" id="preview-category-badge">식당</span>
+          <img id ="preview-main-img" src="#" alt="스토어 썸네일 미리보기" style="display:none;">
+          <div id = "preview-default-state" class = "preview-defalut-state">
+            <i class = "camera-icon">📸</i>
+            <p>사진을<br>등록해 주세요</p>
+          </div>     
+        </div>
+
+        <div class="preview-store-info">
+          <div class = "preview-title-row">
+            <h4 id = "preview-store-name">스터어 이름</h4>
+          </div>
+          <p class="preview-desc" id = "preview-address-text">매장 소개가 표기 됩니다</p>
+          <div class = "preview-sale-row">
+            <span class="preview-tag" id="preview-benefit-tag">혜택</span>
+            <div class = "preview-store-tag-info-wrapper">
+              <span class="preview-store-tag-info">넓은 잔디밭</span>
+              <span class="preview-store-tag-info">주차 가능</span>
+              <span class="preview-store-tag-info">화장실</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class = "preview-header">이렇게 등록됩니다(미리보기)</p>
+    </div>
+
     <form action="{{ url_for('admin.register_store') }}" method="POST" enctype="multipart/form-data">
       
       <div class="image-upload-wrapper">
         <div class="label-group">
-          <label>📸 스토어 대표 사진</label>
+          <label>매장 대표 사진</label>
           <span class="sub-label">직접 촬영한 사진만 올려주세요</span>
         </div>
         <div class="upload-area">
@@ -42,7 +73,7 @@
       </div>
 
       <div class="form-group">
-        <label>스토어 이름</label>
+        <label>매장 이름</label>
         <input type="text" name="store_name" placeholder="예: 바베큐팩토리" required>
       </div>
       
@@ -93,6 +124,7 @@
       <button type="submit" class="submit-btn">스토어 등록 및 QR 자동 생성</button>
     </form>
   </div>
+
 </div>
 {% endblock %}
 
