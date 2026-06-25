@@ -19,7 +19,7 @@ position:relative; display:flex; justify-content: center; align-items: center;}
 text-align: left; padding: 10px 0;}
 .preview-store-tag-info-wrapper{display:flex; gap: 10px; flex-wrap:wrap;}
 .preview-store-tag-info{background-color: #F0F4FE; color: #415DDD; padding: 3px 5px; border-radius: 10px;
-font-size: 10px;}
+font-size: 11px;}
 .preview-store-info h4, .prview-store-info p{margin: 0;}
 
 #register-store form { display: flex; flex-direction: column; gap: 20px; padding: 10px 0 30px 0; }
