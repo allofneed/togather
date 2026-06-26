@@ -7,30 +7,38 @@
 .tab-content { display: none; }
 .tab-content.active { display: block; animation: fadeInFAQ 0.3s ease forwards; }
 
+
 /* preview-group */
-.preview-container{width: 100%; display:flex; border: 1px solid  #A9ADB4; border-radius: 5px; gap: 17px; padding-right: 12px;
-height: 145px;}
-.preview-store-img-container{width:133px; aspect-ratio: 16/9; flex-shrink:0; position:relative; border-radius: 12px;
-background-color: #f0f0f0; overflow:hidden;}
-.preview-store-category-tag{position:absolute; top: 8px; left:8px; margin:0; z-index:10; background-color: white;
-padding: 4px 8px; border-radius: 100px; font-size: 11px;}
-.preview-store-img{width:100%; height: 100%; object-fit:cover; display:block;}
+/* 카드 메인 컨테이너 (430px 최적화) */
+.preview-container { display: flex; width: 100%; max-width: 430px; background-color: #ffffff; padding: 14px; margin: 0 auto; border-radius: 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
 
-.preview-store-inf{width: 256px; display: flex; flex-direction: column; text-align: cetner; align-items: cetner;
-justify-content: center; box-sizing: border-box; padding: 20px 0; gap: 10px;}
-.preview-store-row{display: flex; justify-content: space-between;}
-.preview-store-name{font-size:18px; font-weight: 800;}
-.preview-store-distance{text-align: center; align-items: center;}
-.distance-icon{text-align: center; justify-content: center; height: 15px;}
-.distance-user{font-size:11px; font-style: normal; font-weight: 700; line-height: 15px;}
-.preview-store-int{font-size: 11px; font-weight: 400;}
-.preview-store-benefit{font-size:10px; font-weight: 700; color: #FCA81C;}
-.preview-store-benefit.condition{color: #A9ADB4;}
-.preview-store-simple-tag{display:flex; gap:8px; flex-wrap:wrap;}
-.preview-store-simple-tag span{font-size:10px; background-color: #EFF3FE; color: #2546D2; justify-content: center;
-align-items: cetner; border-radius: 100px; padding:5px 10px; font-weight: 700;}
+/* 좌측 썸네일 및 뱃지 영역 */
+.preview-store-img-container { position: relative; width: 115px; height: 115px; flex-shrink: 0; margin-right: 14px; }
+.preview-store-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+.preview-store-category-tag { position: absolute; top: 6px; left: 6px; margin: 0; background-color: #eef3ff; color: #1a56d6; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 12px; }
 
+/* 우측 정보 영역 전체 */
+.preview-store-inf { display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; overflow: hidden; }
 
+/* 타이틀 & 거리 행 */
+.preview-store-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.preview-store-name { font-size: 16px; font-weight: 700; color: #111111; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-grow: 1; margin-right: 6px; }
+.preview-store-distance { display: flex; align-items: center; flex-shrink: 0; }
+.distance-icon { width: 12px; height: 12px; margin-right: 2px; }
+#distance-user { color: #999999; font-size: 12px; font-weight: 600; }
+
+/* 본문 설명 */
+.preview-store-int { margin: 0 0 6px 0; font-size: 12px; color: #555555; line-height: 1.4; word-break: keep-all; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* 혜택 및 할인 영역 */
+.preview-store-benefit-container { display: flex; align-items: center; margin-bottom: 8px; }
+.star-icon { margin-right: 3px; }
+.preview-store-benefit { color: #ff9800; font-size: 13px; font-weight: 700; margin-right: 4px; }
+.preview-store-benefit.condition { color: #888888; font-weight: 500; }
+
+/* 하단 태그 그룹 */
+.preview-store-simple-tag { display: flex; flex-wrap: wrap; gap: 4px; }
+.preview-store-simple-tag span { background-color: #f1f5fe; color: #1a56d6; font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 4px; }
 
 .preview-store-distance{display: flex; box-sizing: border-box; }
 
