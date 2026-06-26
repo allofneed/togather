@@ -32,7 +32,7 @@
 
       <div class="preview-store-img-container">
         <p class="preview-store-category-tag" id="previewstorecategory">카페</p>
-        <img class="preview-store-img" src="{{url_for}}">
+        <img class="preview-store-img" id="previewstoreimg" src="#" alt="미리보기 메인 이미지">
       </div>
 
       <div class="preview-store-inf">
@@ -70,9 +70,9 @@
           <span class="sub-label">직접 촬영한 사진만 올려주세요</span>
         </div>
         <div class="upload-area">
-          <button type="button" id="file-btn">파일 선택</button>
-          <input type="file" name="store_img" accept="image/*" required id="store_img_input" style="display: none;">
-          <img id="image_preview_img" src="#" alt="미리보기" class="image-preview">
+          <button type="button" id="imgbtn">파일 선택</button>
+          <input type="file" name="store_img" accept="image/*" required id="inputstoreimg" style="display: none;">
+          <img id="inputedstoreimg" src="#" alt="미리보기" class="image-preview">
         </div>
       </div>
 

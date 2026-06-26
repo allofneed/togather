@@ -39,9 +39,35 @@ document.addEventListener("DOMContentLoaded", function() {
         previewStoreBenefitConditiion.textContent = inputStoreBenefitConditiion.value;
     });
    
+    const imgBtn = document.getElementById('imgbtn');
+    const inputStoreImg = document.getElementById('inputstoreimg');
+    const inputedStoreImg = document.getElementById('inputedstoreimg');
+    const PreviewStoreImg = document.getElementById('previewstoreimg');
 
-    // (이제 여기에 사진 업로드와 실시간 텍스트 연동 코드를 하나씩 직접 짜서 넣어보세요!)
-    
+    if(imgBtn && inputStoreImg) {
+        imgBtn.addEventListener('click', function(){
+            inputStoreImg.click();
+        });
+        inputStoreImg.addEventListener('change', function(event){
+            const file = event.target.files[0];
+            
+            if(file){
+                const reader = new FileReader();
+                reader.onload = function(e){
+                    const imageUrl = e.target.result;
+
+                    inputedStoreImg.src = imageUrl;
+                    inputedStoreImg.style.display = 'block';
+                    PreviewStoreImg.src = imageUrl;
+                };
+                reader.readAsDataURL(file);
+            }else {
+                inputedStoreImg.src = "#";
+                inputedStoreImg.style.display = 'none';
+                PreviewStoreImg.src = "#";
+            }
+        });
+    }
 });
 
 // --- 2. 주소 검색 API (미리보기 연동 줄만 제거) ---
