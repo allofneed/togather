@@ -8,20 +8,28 @@
 .tab-content.active { display: block; animation: fadeInFAQ 0.3s ease forwards; }
 
 /* preview-group */
-.preview-container{display: flex; padding-right: 28px; align-items: flex-start; gap:17px; width: 100%; max-width: 100%;}
-.preview-store-img{width: 133px; aspect-ratio: 16/9; flex-shrink: 0; position:relative; border-radius: 12px; background-color: #f0f0f0; height: 100%; }
+.preview-container{width: 100%; display:flex; border: 1px solid  #A9ADB4; border-radius: 5px; padding-right: 28px; gap: 17px;
+height: 145px;}
+.preview-store-img-container{width:133px; aspect-ratio: 16/9; flex-shrink:0; position:relative; border-radius: 12px;
+background-color: #f0f0f0; overflow:hidden;}
+.preview-store-category-tag{position:absolute; top: 8px; left:8px; margin:0; z-index:10; background-color: white;
+padding: 4px 8px; border-radius: 100px; font-size: 11px;}
+.preview-store-img{width:100%; height: 100%; object-fit:cover; display:block;}
+
 .preview-store-inf{width: 256px; display: flex; flex-direction: column; gap: 11px;}
 .preview-store-name{font-size:18px; font-weight: 800;}
+.preview-store-distance{text-align: center; align-items: center;}
+.distance-icon{text-align: center; justify-content: center; height: 15px;}
+.distance-user{font-size:11px; font-style: normal; font-weight: 700; line-height: 15px;}
 .preview-store-int{font-size: 11px; font-weight: 400;}
 .preview-store-benefit{font-size:10px; font-weight: 700; color: #FCA81C;}
-.preview-store-benefit .condition{color: #A9ADB4;}
+.preview-store-benefit.condition{color: #A9ADB4;}
 
 .preview-store-row{display: flex; justify-content: space-between;}
 
 
 
 .preview-store-distance{display: flex; box-sizing: border-box; }
-.distance-icon{width: 9px; height: 12px;}
 
 #register-store form { display: flex; flex-direction: column; gap: 20px; padding: 10px 0 30px 0; }
 
