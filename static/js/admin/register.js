@@ -14,6 +14,32 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    // preview-store-js //
+    const inputStoreName = document.getElementById('inputstorename');
+    const previewStoreName = document.getElementById('previewstorename');
+    inputStoreName.addEventListener('input', function(){
+        previewStoreName.textContent = inputStoreName.value;
+    });
+
+    const selectStoreCategory = document.getElementById('selectstorecategory');
+    const previewStoreCategory = document.getElementById('previewstorecategory');
+    selectStoreCategory.addEventListener('change', function(){
+        previewStoreCategory.textContent = selectStoreCategory.value;
+    });
+
+    const inputStoreBenefit = document.getElementById('inputstorebenefit');
+    const previewStoreBenefit = document.getElementById('previewstorebenefit');
+    inputStoreBenefit.addEventListener('input', function(){
+        previewStoreBenefit.textContent = inputStoreBenefit.value;
+    });
+
+    const inputStoreBenefitConditiion = document.getElementById('inputstorebenefitcondition');
+    const previewStoreBenefitConditiion = document.getElementById('previewstorebenefitcondition');
+    inputStoreBenefitConditiion.addEventListener('input', function(){
+        previewStoreBenefitConditiion.textContent = inputStoreBenefitConditiion.value;
+    });
+   
+
     // (이제 여기에 사진 업로드와 실시간 텍스트 연동 코드를 하나씩 직접 짜서 넣어보세요!)
     
 });
