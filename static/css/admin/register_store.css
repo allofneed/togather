@@ -8,19 +8,20 @@
 .tab-content.active { display: block; animation: fadeInFAQ 0.3s ease forwards; }
 
 /* preview-group */
-.preview-header{text-align: center; font-size: 12px; color: #888; margin-top: 5px; }
-.preview-container{display:flex; flex-direction: column;color: #4e4e4e; 
-font-size: 14px; gap:10px;}
-.preview-register-store{display:flex; gap: 16px; height: 130px; border: 1px solid #e5e5e5;
-border-radius: 12px;}
-.preview-store-img{flex:1; background-color: #222; max-width: 150px; border-radius: 8px;
-position:relative; display:flex; justify-content: center; align-items: center;}
-.preview-store-info{flex:2; display: flex; flex-direction: column; justify-content: space-evenly;
-text-align: left; padding: 10px 0;}
-.preview-store-tag-info-wrapper{display:flex; gap: 10px; flex-wrap:wrap;}
-.preview-store-tag-info{background-color: #F0F4FE; color: #415DDD; padding: 3px 5px; border-radius: 10px;
-font-size: 11px;}
-.preview-store-info h4, .prview-store-info p{margin: 0;}
+.preview-container{display: flex; padding-right: 28px; align-items: flex-start; gap:17px; width: 100%; max-width: 100%;}
+.preview-store-img{width: 133px; aspect-ratio: 16/9; flex-shrink: 0; position:relative; border-radius: 12px; background-color: #f0f0f0; height: 100%; }
+.preview-store-inf{width: 256px; display: flex; flex-direction: column; gap: 11px;}
+.preview-store-name{font-size:18px; font-weight: 800;}
+.preview-store-int{font-size: 11px; font-weight: 400;}
+.preview-store-benefit{font-size:10px; font-weight: 700; color: #FCA81C;}
+.preview-store-benefit .condition{color: #A9ADB4;}
+
+.preview-store-row{display: flex; justify-content: space-between;}
+
+
+
+.preview-store-distance{display: flex; box-sizing: border-box; }
+.distance-icon{width: 9px; height: 12px;}
 
 #register-store form { display: flex; flex-direction: column; gap: 20px; padding: 10px 0 30px 0; }
 

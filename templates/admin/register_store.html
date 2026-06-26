@@ -28,35 +28,32 @@
 
   <div id="register-store" class="tab-content">
 
-    <div class = "preview-container">
-      <div class = "preview-register-store">
+    <div class ="preview-container">
+      <div class="preview-store-img">
+        <p class="preview-store-category-tag">카페</p>
+        <img class="preview-store-img" src="{{url_for}}">
+      </div>
 
-        <div class = "preview-store-img">
-          <span class ="preview-bage" id="preview-category-badge">식당</span>
-          <img id ="preview-main-img" src="#" alt="스토어 썸네일 미리보기" style="display:none;">
-          <div id = "preview-default-state" class = "preview-defalut-state">
-            <i class = "camera-icon">📸</i>
-            <p>사진을<br>등록해 주세요</p>
-          </div>     
-        </div>
-
-        <div class="preview-store-info">
-          <div class = "preview-title-row">
-            <h4 id = "preview-store-name">스터어 이름</h4>
-          </div>
-          <p class="preview-desc" id = "preview-address-text">매장 소개가 표기 됩니다</p>
-          <div class = "preview-sale-row">
-            <span class="preview-tag" id="preview-benefit-tag">혜택</span>
-            <div class = "preview-store-tag-info-wrapper">
-              <span class="preview-store-tag-info">넓은 잔디밭</span>
-              <span class="preview-store-tag-info">주차 가능</span>
-              <span class="preview-store-tag-info">화장실</span>
-            </div>
-          </div>
+      <div class="preview-store-inf">
+        <div class="preview-store-row">
+          <span class="preview-store-name">한울공원</span>
+          <div class="preview-store-distance">
+          <img src="{{url_for('static', filename='svg/distance.svg')}}" class="distance-icon">
+          <span id = "distance-user">1.2km</span>
         </div>
       </div>
-      <p class = "preview-header">이렇게 등록됩니다(미리보기)</p>
-    </div>
+        <span class="preview-store-int">넓은 잔디밭과 산책로가 잘 조성되어 있어 강아지와 뛰어놀기 좋아요</span>
+        <div class="preview-store-benefit-container">
+          <span class="preview-store-benefit">10% 할인</span>
+          <span class="preview-store-benefit condition">(음료한정)</span>
+        </div>
+        <div class="preview-store-simplae-tag">
+          <span>넓은 주차장</span>
+          <span>주차가능</span>
+          <span>화장실</span>
+        </div>
+      </div>
+    </div>    
 
     <form action="{{ url_for('admin.register_store') }}" method="POST" enctype="multipart/form-data">
       
