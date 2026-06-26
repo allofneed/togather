@@ -16,7 +16,9 @@ background-color: #f0f0f0; overflow:hidden;}
 padding: 4px 8px; border-radius: 100px; font-size: 11px;}
 .preview-store-img{width:100%; height: 100%; object-fit:cover; display:block;}
 
-.preview-store-inf{width: 256px; display: flex; flex-direction: column; gap: 11px;}
+.preview-store-inf{width: 256px; display: flex; flex-direction: column; border: 1px solid #222; text-align: cetner; align-items: cetner;
+justify-content: center; box-sizing: border-box; padding: 20px 0; gap: 10px;}
+.preview-store-row{display: flex; justify-content: space-between;}
 .preview-store-name{font-size:18px; font-weight: 800;}
 .preview-store-distance{text-align: center; align-items: center;}
 .distance-icon{text-align: center; justify-content: center; height: 15px;}
@@ -24,8 +26,9 @@ padding: 4px 8px; border-radius: 100px; font-size: 11px;}
 .preview-store-int{font-size: 11px; font-weight: 400;}
 .preview-store-benefit{font-size:10px; font-weight: 700; color: #FCA81C;}
 .preview-store-benefit.condition{color: #A9ADB4;}
-
-.preview-store-row{display: flex; justify-content: space-between;}
+.preview-store-simple-tag{display:flex; gap:8px; flex-wrap:wrap;}
+.preview-store-simple-tag span{font-size:10px; background-color: #EFF3FE; color: #2546D2; justify-content: center;
+align-items: cetner; border-radius: 100px; padding:10px;}
 
 
 
