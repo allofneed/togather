@@ -76,20 +76,22 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label>매장 이름</label>
-        <input type="text" name="store-name" id="inputstorename" placeholder="예: 바베큐팩토리" required>
-      </div>
-      
-      <div class="form-group">
-        <label>카테고리</label>
-        <select name="category" id= "selectstorecategory" required>
-          <option value="식당">식당</option>
-          <option value="카페·베이커리">카페·베이커리</option>
-          <option value="숙박">숙박</option>
-          <option value="놀거리(나들이)">놀거리(나들이)</option>
-          <option value="쇼핑/기타">쇼핑/기타</option>
-        </select>
+      <div class ="form-row">
+        <div class="form-group">
+          <label>매장 이름</label>
+          <input type="text" name="store-name" id="inputstorename" placeholder="예: 바베큐팩토리" required>
+        </div>
+        
+        <div class="form-group">
+          <label>카테고리</label>
+          <select name="category" id= "selectstorecategory" required>
+            <option value="식당">식당</option>
+            <option value="카페·베이커리">카페·베이커리</option>
+            <option value="숙박">숙박</option>
+            <option value="놀거리(나들이)">놀거리(나들이)</option>
+            <option value="쇼핑/기타">쇼핑/기타</option>
+          </select>
+        </div>
       </div>
 
       <div class="form-group">
@@ -115,14 +117,15 @@
           <input type="number" step="any" id="longitude" name="longitude" placeholder="경도를 직접 입력해주세요" required>
         </div>
       </div>
-
-      <div class="form-group">
-        <label>🎁 투개더 제공 혜택</label>
-        <input type="text" name="benefit" id="inputstorebenefit" placeholder="예: 아메리카노 1잔 무료" required>
-      </div>
-      <div class="form-group">
-        <label>혜택 적용 조건</label>
-        <input type="text" name="benefit_condition" id="inputstorebenefitcondition" placeholder="예: 10,000원 이상 결제 시" required>
+      <div class = "form-row">
+        <div class="form-group">
+          <label>🎁 투개더 제공 혜택</label>
+          <input type="text" name="benefit" id="inputstorebenefit" placeholder="예: 아메리카노 1잔 무료" required>
+        </div>
+        <div class="form-group">
+          <label>혜택 적용 조건</label>
+          <input type="text" name="benefit_condition" id="inputstorebenefitcondition" placeholder="예: 10,000원 이상 결제 시" required>
+        </div>
       </div>
 
       <button type="submit" class="submit-btn">스토어 등록 및 QR 자동 생성</button>
