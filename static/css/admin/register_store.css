@@ -49,8 +49,8 @@
 .btn-upload-img { aspect-ratio: 1/1; border-style: dotted; background: #fff; padding: 10px 16px; border-radius: 6px; font-size: 0.9rem; cursor: pointer; 
   font-weight: 500; color: #444; }
 .image-preview { width: 68px; height: 68px; border-radius: 10px; object-fit: cover; display: none; border: 1px solid #e5e5e5; }
-.label-group { display: flex; flex-direction: column; gap: 4px; font-weight: bold; font-size: 14px; color: #222; }
-.sub-label { font-size: 0.85rem; color: #999; }
+.label-group { display: flex; gap: 4px; font-weight: bold; font-size: 14px; color: #222; }
+.sub-label { font-size: 0.7rem; color: #999; display: flex; align-items: center; }
 #file-btn { border: 1px solid #ccc; background: #fff; padding: 10px 16px; border-radius: 6px; font-size: 0.9rem; cursor: pointer; font-weight: 500; color: #444; }
 
 .form-group { display: flex; flex-direction: column; gap: 8px; width: 100%; }
