@@ -38,7 +38,24 @@ document.addEventListener("DOMContentLoaded", function() {
     inputStoreBenefitConditiion.addEventListener('input', function(){
         previewStoreBenefitConditiion.textContent = inputStoreBenefitConditiion.value;
     });
-   
+
+    const inputStoreHashtagFirst = document.getElementById('inputstorehashtagfirst');
+    const inputStoreHashtagSecond = document.getElementById('inputstorehashtagsecond');
+    const inputStoreHashtagThird = document.getElementById('inputstorehashtagthird');
+    const previewStoreHashtagFirst = document.getElementById('previewstorehashtagfirst');
+    const previewStoreHashtagSecond = document.getElementById('previewstorehashtagsecond');
+    const previewStoreHashtagThird = document.getElementById('previewstorehashtagthird');
+
+    inputStoreHashtagFirst.addEventListener('input', function(){
+        previewStoreHashtagFirst.textContent = inputStoreHashtagFirst.value;
+    });
+    inputStoreHashtagSecond.addEventListener('input', function(){
+        previewStoreHashtagSecond.textContent = inputStoreHashtagSecond.value;
+    });
+    inputStoreHashtagThird.addEventListener('input', function(){
+        previewStoreHashtagThird.textContent = inputStoreHashtagThird.value;
+    });
+
     const imgBtn = document.getElementById('imgbtn');
     const inputStoreImg = document.getElementById('inputstoreimg');
     const inputedStoreImg = document.getElementById('inputedstoreimg');

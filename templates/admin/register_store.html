@@ -32,7 +32,7 @@
 
       <div class="preview-store-img-container">
         <p class="preview-store-category-tag" id="previewstorecategory">카페</p>
-        <img class="preview-store-img" id="previewstoreimg" src="#" alt="미리보기 메인 이미지">
+        <img class="preview-store-img" id="previewstoreimg" src="{{url_for('static', filename='img/store/11.jpg')}}" alt="미리보기 메인 이미지">
       </div>
 
       <div class="preview-store-inf">
@@ -55,9 +55,9 @@
         </div>
         
         <div class="preview-store-simple-tag">
-          <span>넓은 주차장</span>
-          <span>주차가능</span>
-          <span>화장실</span>
+          <span id = "previewstorehashtagfirst">넓은 주차장</span>
+          <span id = "previewstorehashtagsecond">주차가능</span>
+          <span id = "previewstorehashtagthird">화장실</span>
         </div>
       </div>
     </div>  
@@ -70,7 +70,7 @@
           <span class="sub-label">직접 촬영한 사진만 올려주세요</span>
         </div>
         <div class="upload-area">
-          <button type="button" id="imgbtn">파일 선택</button>
+          <button type="button" id="imgbtn" class="btn-upload-img">파일 선택</button>
           <input type="file" name="store_img" accept="image/*" required id="inputstoreimg" style="display: none;">
           <img id="inputedstoreimg" src="#" alt="미리보기" class="image-preview">
         </div>
@@ -125,6 +125,17 @@
         <div class="form-group">
           <label>혜택 적용 조건</label>
           <input type="text" name="benefit_condition" id="inputstorebenefitcondition" placeholder="예: 10,000원 이상 결제 시" required>
+        </div>
+      </div>
+
+      <div class = "form-row">
+        <div class ="form-group">
+          <label>해시태그</label>
+          <div class = "input-hashtag-container">
+            <input type="text" name="store_intro" id="inputstorehashtagfirst" placeholder="예: 주차가능" required>
+            <input type="text" name="store_intro" id="inputstorehashtagsecond" placeholder="예: 애완운동장" required>
+            <input type="text" name="store_intro" id="inputstorehashtagthird" placeholder="예: 펫 친화적" required>
+          </div>
         </div>
       </div>
 
