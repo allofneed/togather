@@ -28,7 +28,7 @@ def register_store():
             store_name = request.form.get('store-name')
             store_category = request.form.get('store-category')
             store_base_address = request.form.get('store-base-address')
-            store_detail_address = request.form.get('store-detail-address')
+            store_detail_address = request.form.get('store-detail_address')
             latitude = request.form.get('latitude')
             longitude = request.form.get('longitude')
             store_benefit = request.form.get('benefit')
