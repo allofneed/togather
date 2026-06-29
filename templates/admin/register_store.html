@@ -62,7 +62,7 @@
       </div>
     </div>  
 
-    <form action="{{ url_for('admin.register_store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url_for('admin.register_store') }}" method="POST" enctype="multipart/form-data" id="store-register-form">
       
       <div class="image-upload-wrapper">
         <div class="label-group">
@@ -84,7 +84,7 @@
         
         <div class="form-group">
           <label>카테고리</label>
-          <select name="category" id= "selectstorecategory" required>
+          <select name="store-category" id= "selectstorecategory" required>
             <option value="식당">식당</option>
             <option value="카페·베이커리">카페·베이커리</option>
             <option value="숙박">숙박</option>
@@ -97,14 +97,14 @@
       <div class="form-group">
         <label>기본 주소</label>
         <div class="address-input-group">
-          <input type="text" id="base_address" name="base_address" placeholder="우측 버튼을 눌러 주소를 검색하세요" required readonly>
+          <input type="text" id="base_address" name="store-base-address" placeholder="우측 버튼을 눌러 주소를 검색하세요" required readonly>
           <button type="button" onclick="searchAddress()" class="search-btn">🔍 주소 검색</button>
         </div>
       </div>
       
       <div class="form-group">
         <label>상세 주소</label>
-        <input type="text" id="detail_address" name="detail_address" placeholder="예: 1층 101호 (직접 입력)" required>
+        <input type="text" id="store-detail-address" name="detail_address" placeholder="예: 1층 101호 (직접 입력)" required>
       </div>
 
       <div class="form-row">
@@ -124,7 +124,7 @@
         </div>
         <div class="form-group">
           <label>혜택 적용 조건</label>
-          <input type="text" name="benefit_condition" id="inputstorebenefitcondition" placeholder="예: 음료 한정" required>
+          <input type="text" name="benefit-condition" id="inputstorebenefitcondition" placeholder="예: 음료 한정" required>
         </div>
       </div>
 
@@ -132,9 +132,9 @@
         <div class ="form-group">
           <label>해시태그</label>
           <div class = "input-hashtag-container">
-            <input type="text" name="store_intro" id="inputstorehashtagfirst" placeholder="예: 주차가능" required>
-            <input type="text" name="store_intro" id="inputstorehashtagsecond" placeholder="예: 애완운동장" required>
-            <input type="text" name="store_intro" id="inputstorehashtagthird" placeholder="예: 펫 친화적" required>
+            <input type="text" name="store_hashtag01" id="inputstorehashtagfirst" placeholder="예: 주차가능" required>
+            <input type="text" name="store_hashtag02" id="inputstorehashtagsecond" placeholder="예: 애완운동장" required>
+            <input type="text" name="store_hashtag03" id="inputstorehashtagthird" placeholder="예: 펫 친화적" required>
           </div>
         </div>
       </div>

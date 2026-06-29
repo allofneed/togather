@@ -1,7 +1,13 @@
 import os
-from flask import Blueprint, render_template, session, redirect, url_for, request
+import uuid
+from flask import Blueprint, render_template, session, redirect, url_for, request, jsonify
+from supabase import create_client, Client
 
 admin_bp = Blueprint('admin', __name__, url_prefix='/admin')
+
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 @admin_bp.before_request
 def check_admin_access():
@@ -17,11 +23,62 @@ def admin_dashboard():
 def register_store():
     naver_key = os.getenv("NAVER_MAP_CLIENT_ID")
     if request.method =='POST':
-        store_name=request.form.get('store_name')
-        store_category=request.form.get('store_category')
+        try:
+            store_image = request.files.get('store_img')
+            store_name = request.form.get('store-name')
+            store_category = request.form.get('store-category')
+            store_base_address = request.form.get('store-base-address')
+            store_detail_address = request.form.get('store-detail-address')
+            latitude = request.form.get('latitude')
+            longitude = request.form.get('longitude')
+            store_benefit = request.form.get('benefit')
+            store_benefit_condition = request.form.get('benefit-condition')
+            store_hashtag_first = request.form.get('store_hashtag01')
+            store_hashtag_second = request.form.get('store_hashtag02')
+            store_hashtag_third = request.form.get('store_hashtag03')
 
-        print(f"DB 저장 완료: {store_name} ({store_category})")
-    return render_template('admin/register_store.html', naver_map_id=naver_key)
+            if not store_image:
+                return jsonify({"success": False, "message": "대표 이미지는 필수 입니다"}), 400
+            
+            file_extension = store_image.filename.split('.')[-1]
+            unique_filename = f"{uuid.uuid4()}.{file_extension}"
+            file_bytes = store_image.read()
+
+            supabase.storage.from_("store-images").upload(
+                path=unique_filename,
+                file=file_bytes,
+                file_options={"content-type": store_image.content_type}
+            )
+            image_public_url = supabase.storage.from_("store-images").get_public_url(unique_filename)
+
+            store_db_row = {
+                "img_url": image_public_url,
+                "name": store_name,
+                "category": store_category,
+                "main_address": store_base_address,
+                "sub_address": store_detail_address,
+                "latitude":float(latitude) if latitude else 0.0,
+                "longitude":float(longitude) if longitude else 0.0,
+                "benefit":store_benefit,
+                "benefit_condition":store_benefit_condition,
+                "hashtag_first":store_hashtag_first,
+                "hashtag_second":store_hashtag_second,
+                "hashtag_third":store_hashtag_third
+            }
+            supabase.table("register_store").insert(store_db_row).execute()
+            return jsonify({"success": True, "message": "스토어가 성공적으로 등록되었습니다."})
+        except Exception as e:
+                print("DB 저장 중 에러 발생:", str(e))
+                return jsonify({"success": False, "message": str(e)}), 500
+        
+    try:
+        response = supabase.table("register_store").select("*").execute()
+        stores_list = response.data
+    except Exception as e:
+        stores_list = []
+        print("스토어 목록 로드 실패:", str(e))
+    return render_template('admin/register_store.html', naver_map_id=naver_key, stores=stores_list)
+            
 
 @admin_bp.route('/register_banner')
 def register_banner():

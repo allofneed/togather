@@ -2,9 +2,9 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, render_template, jsonify, request, redirect, url_for, session
 from supabase import create_client, Client
-from routes.admin import admin_bp
 
 load_dotenv()
+from routes.admin import admin_bp
 app = Flask(__name__)
 app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
@@ -12,7 +12,6 @@ app.register_blueprint(admin_bp)
 
 SUPABASE_URL = os.getenv("SUPABASE_URL")
 SUPABASE_KEY = os.getenv("SUPABASE_KEY")
-
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 @app.route('/')

@@ -87,6 +87,40 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+// --- register store js ---
+
+    const registerForm = document.getElementById('store-register-form');
+    if(registerForm){
+        registerForm.addEventListener('submit', function(e){
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            fetch(this.action,{
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.success) {
+                    alert('매장 등록이 완료되었습니다')
+                    registerForm.reset();
+
+                    thumnailImg.src = "#";
+                    thumnailImg.style.display='none';
+                    mainPreviewImg.src = "#";
+
+                    window.location.reload();
+                } else {
+                    alert('등록실패 :' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('에러', error);
+                alert('서버와 통신 중 에러가 발생했습니다.');
+            });
+        })
+    }
+
 // --- 2. 주소 검색 API (미리보기 연동 줄만 제거) ---
 function searchAddress() {
     new daum.Postcode({
