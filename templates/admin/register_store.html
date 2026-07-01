@@ -18,13 +18,13 @@
   <div id="registered-store-list" class="tab-content active">
 
     <div class = "store-search-container">
-      <select class = "store-select-category">
+      <select class = "store-select-category" id="selectcategory">
           <option value ="all">전체</option>
         {% for store in stores %}
           <option value ="{{store.category}}">{{store.category}}</option>
         {% endfor %}
       </select>
-      <input type ="text" class="store-search-input" id="store-serarchInput" placeholder="매장명 또는 키워드를 입력하세요">
+      <input type ="text" class="store-search-input" id="storesearchInput" placeholder="매장명 또는 키워드를 입력하세요">
       <button class = "search-button" onclick="clearSearch()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"></circle>

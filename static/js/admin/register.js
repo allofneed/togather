@@ -140,10 +140,37 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
+
+    const selectStoreCategory = document.getElementById('selectcategory')
+    const serachStoreName = document.getElementById('storesearchInput')
+    const allStore = document.querySelectorAll('.registered-store-container')
+
+    function filterStore() {
+        const selecetCategory = selectStoreCategory.value;
+        const searchStoreText = serachStoreName.value.trim();
+
+        allStore.forEach(store => {
+            const filterStoreCategory = store.getAttribute('data-category');
+            const filterStoreName = store.getAttribute('data-name');
+
+            const isCategoryMatch = (selecetCategory === 'all' || filterStoreCategory === selecetCategory);
+            const isNameMatch = filterStoreName.includes(searchStoreText);
+
+            if (isCategoryMatch && isNameMatch) {
+                store.style.display = 'block';
+            }else {
+                store.style.display = 'none';
+            }
+        });
+    }
+    if (selectStoreCategory && serachStoreName) {
+        selectStoreCategory.addEventListener('change', filterStore);
+        serachStoreName.addEventListener('input', filterStore);
+    }
 }); 
 
 function clearSearch() {
-        const searchStoreInput = document.getElementById('store-serarchInput');
+        const searchStoreInput = document.getElementById('storesearchInput');
         searchStoreInput.value = '';
         searchStoreInput.focus();
     }
