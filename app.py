@@ -56,7 +56,14 @@ def index():
     current_user_name = session.get('user_name', '고객')
     current_user_role = session.get('user_role', 'user')
     naver_key = os.getenv("NAVER_MAP_CLIENT_ID")
-    return render_template('index.html',user_name=current_user_name,user_role=current_user_role,naver_map_id=naver_key)
+
+    try:
+        response = supabase.table("register_store").select("*").execute()
+        stores_list = response.data
+    except Exception as e:
+        stores_list = []
+        print("메인 페이지 스토어 로드 실피 :", str(e))
+    return render_template('index.html',user_name=current_user_name,user_role=current_user_role,naver_map_id=naver_key, stores=stores_list)
 
 @app.route('/reservationinf')
 def reservation_inf():

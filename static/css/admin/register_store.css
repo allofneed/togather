@@ -10,35 +10,50 @@
 
 /* preview-group */
 /* 카드 메인 컨테이너 (430px 최적화) */
-.preview-container { display: flex; width: 100%; max-width: 430px; background-color: #ffffff; padding: 14px; margin: 0 auto; border-radius: 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
+.preview-container, .registered-store-container
+{ display: flex; width: 100%; max-width: 430px; background-color: #ffffff; padding: 14px; margin: 0 auto; border-radius: 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
 
 /* 좌측 썸네일 및 뱃지 영역 */
-.preview-store-img-container { position: relative; width: 115px; height: 115px; flex-shrink: 0; margin-right: 14px; }
-.preview-store-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
-.preview-store-category-tag { position: absolute; top: 6px; left: 6px; margin: 0; background-color: #eef3ff; color: #1a56d6; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 12px; }
+.preview-store-img-container, .registered-store-img-container
+{ position: relative; width: 115px; height: 115px; flex-shrink: 0; margin-right: 14px; }
+.preview-store-img, .registered-store-img
+{ width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+.preview-store-category-tag, .registered-store-category-tag 
+{ position: absolute; top: 6px; left: 6px; margin: 0; background-color: #eef3ff; color: #1a56d6; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 12px; }
 
 /* 우측 정보 영역 전체 */
-.preview-store-inf { display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; overflow: hidden; }
+.preview-store-inf, .registered-store-inf 
+{ display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; overflow: hidden; }
 
 /* 타이틀 & 거리 행 */
-.preview-store-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-.preview-store-name { font-size: 16px; font-weight: 700; color: #111111; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-grow: 1; margin-right: 6px; }
-.preview-store-distance { display: flex; align-items: center; flex-shrink: 0; }
+.preview-store-row, .registered-store-row
+{ display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.preview-store-name, .registered-store-name
+{ font-size: 16px; font-weight: 700; color: #111111
+  
+  ; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex-grow: 1; margin-right: 6px; }
+.preview-store-distance, .registered-store-distance
+{ display: flex; align-items: center; flex-shrink: 0; }
 .distance-icon { width: 12px; height: 12px; margin-right: 2px; }
 #distance-user { color: #999999; font-size: 12px; font-weight: 600; }
 
 /* 본문 설명 */
-.preview-store-int { margin: 0 0 6px 0; font-size: 12px; color: #555555; line-height: 1.4; word-break: keep-all; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.preview-store-int, .registered-store-int
+{ margin: 0 0 6px 0; font-size: 12px; color: #555555; line-height: 1.4; word-break: keep-all; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
 /* 혜택 및 할인 영역 */
-.preview-store-benefit-container { display: flex; align-items: center; margin-bottom: 8px; }
-.star-icon { margin-right: 3px; }
-.preview-store-benefit { color: #ff9800; font-size: 13px; font-weight: 700; margin-right: 4px; }
+.preview-store-benefit-container, .registered-store-benefit-container
+{ display: flex; align-items: center; margin-bottom: 8px; }
+.star-icon { margin-right: 3px; } 
+.preview-store-benefit, .registered-store-benefit
+{ color: #ff9800; font-size: 13px; font-weight: 700; margin-right: 4px; }
 .preview-store-benefit.condition { color: #888888; font-weight: 500; }
 
 /* 하단 태그 그룹 */
-.preview-store-simple-tag { display: flex; flex-wrap: wrap; gap: 4px; }
-.preview-store-simple-tag span { background-color: #f1f5fe; color: #1a56d6; font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 4px; }
+.preview-store-simple-tag, .registered-store-simple-tag 
+{ display: flex; flex-wrap: wrap; gap: 4px; }
+.preview-store-simple-tag, .registered-store-simple-tag span 
+{ background-color: #f1f5fe; color: #1a56d6; font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 4px; }
 
 .preview-store-distance{display: flex; box-sizing: border-box; }
 
@@ -73,3 +88,13 @@
 .submit-btn { width: 100%; background: #1AADB3; color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 14px; box-sizing: border-box; }
 
 .input-hashtag-container { display: flex; gap: 8px;}
+
+.store-search-container{display: flex; align-items: center; width:100%; max-width: 400px; height: 48px; background-color: #ffffff;
+border: 1px solid #dee2e6; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); margin-bottom: 10px;}
+.store-select-category{border:none; outline: none; height: 100%; padding: 0 8px 0 13px; background-color: #f8f9fa;
+border-right: 1px solid #dee2e6; color: #495057; font-size: 12px; font-weight: 500; cursor: pointer;}
+.store-search-input{flex:1; border:none; outline:none; height: 100%; padding: 0 16px; font-size: 13px; color: #212529; background: transparent; }
+.stroe-search-input::placeholder{ color: #adb5bd;}
+.search-button{background: none; border: none; outline: none; height: 100%; padding: 0 16px; display: flex; align-items: center; justify-content: center;
+cursor: pointer;}
+.search-button svg{width:20px; height: 20px; color: #495057;}

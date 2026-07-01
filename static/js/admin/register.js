@@ -140,7 +140,13 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
     }
-}); // DOMContentLoaded 울타리 끝
+}); 
+
+function clearSearch() {
+        const searchStoreInput = document.getElementById('store-serarchInput');
+        searchStoreInput.value = '';
+        searchStoreInput.focus();
+    }
 
 // --- 5. 주소 검색 API (울타리 밖이어도 작동하는 독립 함수) ---
 function searchAddress() {

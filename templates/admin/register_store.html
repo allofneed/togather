@@ -16,11 +16,26 @@
 
 <div class="tab-content-container">
   <div id="registered-store-list" class="tab-content active">
+
+    <div class = "store-search-container">
+      <select class = "store-select-category">
+          <option value ="all">전체</option>
+        {% for store in stores %}
+          <option value ="{{store.category}}">{{store.category}}</option>
+        {% endfor %}
+      </select>
+      <input type ="text" class="store-search-input" id="store-serarchInput" placeholder="매장명 또는 키워드를 입력하세요">
+      <button class = "search-button" onclick="clearSearch()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="15" y1="9" x2="9" y2="15"></line>
+            <line x1="9" y1="9" x2="15" y2="15"></line>
+        </svg>
+      </button>
+    </div>
+
     {% for store in stores %}
-      <div class="store-card">
-        <span class="store-badge">{{ store.category }}</span>
-        <h4>{{ store.name }}</h4>
-      </div>
+      {% include 'layout/store_card.html' %}
     {% else %}
       <p class="empty-message">아직 등록된 스토어가 없습니다.</p>
     {% endfor %}
@@ -60,6 +75,7 @@
           <span id = "previewstorehashtagthird">해시태그03</span>
         </div>
       </div>
+
     </div>  
 
     <form action="{{ url_for('admin.register_store') }}" method="POST" enctype="multipart/form-data" id="store-register-form">
@@ -67,11 +83,11 @@
       <div class="image-upload-wrapper">
         <div class="label-group">
           <label>매장 대표 사진</label>
-          <span class="sub-label">1:1 비율의 이미지만 넣어주세요</span>
+          <span class="sub-label">* 5MB 이하의 이미지 첨부 가능 / JPG,PNG 가능</span>
         </div>
         <div class="upload-area">
           <button type="button" id="imgbtn" class="btn-upload-img" style="font-size:10px;">이미지<br>선택</button>
-          <input type="file" name="store_img" accept="image/*" required id="inputstoreimg" style="display: none;">
+          <input type="file" name="store-img" accept="image/*" required id="inputstoreimg" style="display: none;">
           <img id="inputedstoreimg" src="#" alt="미리보기" class="image-preview">
         </div>
       </div>

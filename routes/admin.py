@@ -24,7 +24,7 @@ def register_store():
     naver_key = os.getenv("NAVER_MAP_CLIENT_ID")
     if request.method =='POST':
         try:
-            store_image = request.files.get('store_img')
+            store_image = request.files.get('store-img')
             store_name = request.form.get('store-name')
             store_category = request.form.get('store-category')
             store_base_address = request.form.get('store-base-address')

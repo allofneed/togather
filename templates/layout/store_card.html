@@ -1,0 +1,33 @@
+<div class = "registered-store-container">
+        
+        <div class = "registered-store-img-container">
+          <p class="registered-store-category-tag">{{store.category}}</p>
+          <img class="registered-store-img" src="{{store.img_url}}" alt="미리보기 메인 이미지">
+        </div>
+
+        <div class="registered-store-inf">
+          <div class="registered-store-row">
+            <span class="registered-store-name">{{store.name}}</span>
+            <div class="registered-store-distance">
+              <img src="{{url_for('static', filename='svg/distance.svg')}}" class="distance-icon">
+              <span id="distance-user">1.2km</span>
+            </div>
+          </div>
+          
+          <p class="registered-store-int">매장에 대한 간단한 소개란</p>
+          
+          <div class="registered-store-benefit-container">
+            <svg class="star-icon" width="14" height="14" viewBox="0 0 24 24" fill="#ffb300">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+            <span class="registered-store-benefit">{{store.benefit}}</span>
+            <span class="registered-store-benefit condition">{{store.benefit_condition}}</span>
+          </div>
+          
+          <div class="registered-store-simple-tag">
+            <span>{{store.hashtag_first}}</span>
+            <span>{{store.hashtag_second}}</span>
+            <span>{{store.hashtag_third}}</span>
+          </div>
+        </div>
+      </div>
