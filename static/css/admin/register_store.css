@@ -52,7 +52,7 @@
 /* 하단 태그 그룹 */
 .preview-store-simple-tag, .registered-store-simple-tag 
 { display: flex; flex-wrap: wrap; gap: 4px; }
-.preview-store-simple-tag, .registered-store-simple-tag span 
+.preview-store-simple-tag span, .registered-store-simple-tag span 
 { background-color: #f1f5fe; color: #1a56d6; font-size: 11px; font-weight: 600; padding: 4px 8px; border-radius: 4px; }
 
 .preview-store-distance{display: flex; box-sizing: border-box; }
