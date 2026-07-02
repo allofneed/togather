@@ -1,258 +1,62 @@
 {% extends 'layout/main_layout.html' %}
-{% block title %} 쿠폰 혜택 {% endblock %}
+{% block title %} {{store.name}} 쿠폰 {% endblock %}
+
+{% block css %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/admin/register_store.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/store_benefit.css')}}">
+{% endblock %}
 
 {% set header_title = "쿠폰 혜택" %}
 
 {% block content %}
-<style>
-    /* 전체 배경을 시안처럼 연한 파란색으로! */
-    .benefit-page {
-        background-color: #f4f8ff;
-        min-height: calc(100vh - 60px); 
-        padding-bottom: 40px;
-        font-family: 'Pretendard', sans-serif;
-    }
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-    /* 1. 상단 축하 배너 영역 */
-    .top-banner {
-        text-align: center;
-        padding: 40px 20px 20px;
-    }
-    .check-circle {
-        background-color: #1a73e8;
-        color: white;
-        width: 40px; height: 40px;
-        border-radius: 50%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        margin-bottom: 15px;
-    }
-    .main-title {
-        font-size: 26px;
-        font-weight: 800;
-        color: #333;
-        margin: 0 0 8px 0;
-        letter-spacing: -0.5px;
-    }
-    .sub-title {
-        font-size: 15px;
-        color: #555;
-        margin: 0;
-        line-height: 1.4;
-    }
+<lottie-player 
+    src="https://assets2.lottiefiles.com/packages/lf20_u4yrau.json" 
+    background="transparent" 
+    speed="0.8" 
+    style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999;" 
+    autoplay>
+</lottie-player>
 
-    /* 2. 매장 정보 카드 */
-    .store-info-card {
-        background: white;
-        border-radius: 16px;
-        padding: 16px;
-        margin: 0 20px 24px;
-        display: flex;
-        gap: 15px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    }
-    .store-img {
-        width: 80px; height: 80px;
-        border-radius: 12px;
-        object-fit: cover;
-        background-color: #eee;
-    }
-    .store-text-box {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .category-badge {
-        background: #17b397;
-        color: white;
-        font-size: 11px;
-        font-weight: bold;
-        padding: 4px 8px;
-        border-radius: 12px;
-        align-self: flex-start;
-        margin-bottom: 6px;
-    }
-    .store-name {
-        font-size: 17px;
-        font-weight: 700;
-        margin: 0 0 6px 0;
-        color: #222;
-    }
-    .store-address {
-        font-size: 12px;
-        color: #777;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-    }
+<div class = "benefit-page-container">
 
-    /* 3. 쿠폰 섹션 */
-    .coupon-section {
-        padding: 0 20px;
-    }
-    .coupon-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 12px;
-    }
-    .coupon-header-title {
-        font-size: 16px;
-        font-weight: bold;
-        color: #333;
-    }
-    .coupon-count {
-        font-size: 13px;
-        color: #ff6b6b;
-        font-weight: bold;
-    }
+  <div class = "benefit-check-icon">
+    {% include 'icon/check-box.html' %}
+  </div>
+
+  <div class = "benefit-qr-txt">
+    <h2>QR 인증 완료!</h2>
+    <p><strong>{{store.name}}</strong>에서<br>사용가능한 쿠폰을 받아가세요!</p>
+  </div>
+
+  <div class = "benefit-store-card">
+    {% include 'layout/store_card.html' %}
+  </div>
+
+  <div class ="benefit-coupon">
+    <h3>사용 가능한 쿠폰</h3>
+  </div>
+
+  <div class = "benefit-use-notice-container">
     
-    /* 쿠폰 티켓 모양 */
-    .coupon-ticket {
-        display: flex;
-        background: white;
-        border-radius: 12px;
-        border: 1px solid #17b397;
-        overflow: hidden;
-        margin-bottom: 16px;
-        box-shadow: 0 4px 10px rgba(23, 179, 151, 0.1);
-    }
-    .ticket-left {
-        flex: 1;
-        padding: 20px 16px;
-        border-right: 2px dashed #17b397; /* 티켓 절취선 */
-        background: #fff;
-    }
-    .ticket-right {
-        width: 90px;
-        background: #17b397;
-        color: white;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
-    }
-    .benefit-title {
-        font-size: 18px;
-        font-weight: 800;
-        color: #222;
-        margin: 0 0 6px 0;
-    }
-    .benefit-desc {
-        font-size: 13px;
-        color: #666;
-        margin: 0 0 10px 0;
-    }
-    .benefit-limit {
-        font-size: 12px;
-        color: #1a73e8;
-        font-weight: bold;
-        margin: 0;
-    }
-
-    /* 4. 사용 안내 박스 */
-    .notice-box {
-        background: #eaf1ff;
-        border-radius: 12px;
-        padding: 16px;
-        margin: 24px 20px;
-        position: relative;
-    }
-    .notice-box h4 {
-        margin: 0 0 10px 0;
-        color: #1a73e8;
-        font-size: 14px;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-    }
-    .notice-box ul {
-        margin: 0;
-        padding-left: 20px;
-        font-size: 12px;
-        color: #555;
-        line-height: 1.6;
-    }
-    
-    /* 5. 하단 버튼 */
-    .action-buttons {
-        display: flex;
-        gap: 10px;
-        padding: 0 20px;
-    }
-    .btn {
-        flex: 1;
-        padding: 14px 0;
-        border-radius: 10px;
-        font-size: 14px;
-        font-weight: bold;
-        text-align: center;
-        text-decoration: none;
-    }
-    .btn-outline {
-        border: 1px solid #1a73e8;
-        color: #1a73e8;
-        background: white;
-    }
-    .btn-solid {
-        background: #1a73e8;
-        color: white;
-    }
-</style>
-
-<div class="benefit-page">
-    
-    <div class="top-banner">
-        <div class="check-circle">✓</div>
-        <h1 class="main-title">QR 인증 완료!</h1>
-        <p class="sub-title"><strong>{{ store.name }}</strong>에서<br>사용 가능한 혜택을 받으세요!</p>
+    <div class = "benefit-use-notice-icon">
+      {% include 'icon/dog.html' %}
     </div>
 
-    <div class="store-info-card">
-        <img src="{{ store.img_url }}" alt="매장 사진" class="store-img">
-        <div class="store-text-box">
-            <span class="category-badge">{{ store.category }}</span>
-            <h2 class="store-name">{{ store.name }}</h2>
-            <p class="store-address">📍 {{ store.main_address }}</p>
-        </div>
+    <div class = "benefit-use-inf">
+      <h3>쿠폰 사용 안내</h3>
+      <ul>
+        <li>결제 전 쿠폰을 제시해주세요.</li>
+        <li>중복 사용은 불가합니다</li>
+      </ul>  
     </div>
+  </div>
 
-    <div class="coupon-section">
-        <div class="coupon-header">
-            <span class="coupon-header-title">🎫 사용 가능한 쿠폰</span>
-            <span class="coupon-count">1장 발급완료!</span>
-        </div>
-
-        <div class="coupon-ticket">
-            <div class="ticket-left">
-                <h3 class="benefit-title">{{ store.benefit }}</h3>
-                <p class="benefit-desc">{{ store.benefit_condition }}</p>
-                <p class="benefit-limit">1인 1회 사용 가능</p>
-            </div>
-            <div class="ticket-right">
-                <span style="font-size: 24px; margin-bottom: 5px;">⬇️</span>
-                <span style="font-size: 13px; font-weight: bold;">쿠폰 사용</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="notice-box">
-        <h4>📢 쿠폰 사용 안내</h4>
-        <ul>
-            <li>결제 전 직원에게 본 화면을 제시해 주세요.</li>
-            <li>타 쿠폰 및 할인 혜택과 중복 사용은 불가합니다.</li>
-            <li>혜택 내용은 매장 사정에 따라 변경될 수 있습니다.</li>
-        </ul>
-    </div>
-
-    <div class="action-buttons">
-        <a href="#" class="btn btn-outline">🏠 매장 상세보기</a>
-        <a href="{{ url_for('index') }}" class="btn btn-solid">🐾 다른 제휴매장 보기</a>
-    </div>
-
+  <div class = "benefit-page-btn">
+    <a href="#" class = "btn-outline">매장 상세보기</a>
+    <a href="{{url_for('store_list')}}" class = "btn-solid">다른 제휴매장 찾아보기</a>
+  </div>
 </div>
-{% endblock %}
+{% endblock %}    
