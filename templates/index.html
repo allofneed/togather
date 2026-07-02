@@ -45,7 +45,7 @@
          
         <div class = "catery-container">
           <h3>카페·식당</h3>
-          <button class = "all-category"> 전체보기 ></button>
+          <a class = "all-category" href="{{ url_for('store_list') }}"> 전체보기 ></a>
         </div>
       </div>
         {% for store in stores %}

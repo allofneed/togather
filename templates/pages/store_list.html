@@ -1,0 +1,31 @@
+{% extends 'layout/main_layout.html' %}
+{% block title %} 투개더 협력매장 {% endblock %}
+
+{% block css %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/admin/register_store.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/store_list.css')}}">
+{% endblock %}
+
+{% set header_title = "투개더 제휴매장" %}
+{% block content %}
+<nav class = "store-list-category-container" id="selectcategory">
+    <button>전체</button>
+    {% for category in stores | map(attribute='category') | unique %}
+      <button>{{ category }}</button>
+    {% endfor %}
+</nav>
+
+  {% for store in stores %}
+    {% include 'layout/store_card.html' %}
+  {% else %}
+    <p class="empty-message">아직 등록된 스토어가 없습니다.</p>
+  {% endfor %}
+ 
+{% endblock %}
+
+
+{% block script %}
+{{super()}}
+<script src ="{{url_for('static', filename='js/admin/regist.js')}}"></script>
+{% endblock %}

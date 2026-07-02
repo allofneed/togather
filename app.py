@@ -65,6 +65,17 @@ def index():
         print("메인 페이지 스토어 로드 실피 :", str(e))
     return render_template('index.html',user_name=current_user_name,user_role=current_user_role,naver_map_id=naver_key, stores=stores_list)
 
+@app.route('/storelist')
+def store_list():
+    try:
+        response = supabase.table("register_store").select("*").execute()
+        store_list = response.data
+    except Exception as e:
+        store_list = []
+        print("스토어 목록 로드 실패:", str(e))
+
+    return render_template('pages/store_list.html', stores=store_list)
+
 @app.route('/reservationinf')
 def reservation_inf():
     return render_template('function/reservation_inf.html')
