@@ -9,12 +9,13 @@
 
 {% set header_title = "투개더 제휴매장" %}
 {% block content %}
-<nav class = "store-list-category-container" id="selectcategory">
-    <button>전체</button>
+
+<div class="store-list-category-container" role="tablist" aria-label="매장 카테고리" id="selectcategory">
+    <button class="store-list-category active" role="tab" aria-selected="true">전체</button>
     {% for category in stores | map(attribute='category') | unique %}
-      <button>{{ category }}</button>
+    <button class="store-list-category" role="tab" aria-selected="false">{{ category }}</button>
     {% endfor %}
-</nav>
+</div>
 
   {% for store in stores %}
     {% include 'layout/store_card.html' %}

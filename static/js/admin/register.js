@@ -175,6 +175,39 @@ document.addEventListener("DOMContentLoaded", function() {
         selectStoreCategory.addEventListener('change', filterStore);
         serachStoreName.addEventListener('input', filterStore);
     }
+
+    const categoryContainer = document.getElementById('selectcategory');
+    
+    if (categoryContainer) {
+        // 컨테이너 안의 모든 버튼을 가져옵니다.
+        const categoryBtns = categoryContainer.querySelectorAll('button');
+
+        categoryBtns.forEach(button => {
+            button.addEventListener('click', () => {
+                
+                // 1. 모든 버튼의 불을 끄고, aria-selected를 false로 변경
+                categoryBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-selected', 'false');
+                });
+                
+                // 2. 클릭한 버튼만 불을 켜고, aria-selected를 true로 변경
+                button.classList.add('active');
+                button.setAttribute('aria-selected', 'true');
+                
+                // 3. 클릭한 탭이 화면 가운데로 부드럽게 스크롤 되도록 설정
+                button.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    inline: 'center', 
+                    block: 'nearest' 
+                });
+                
+                // TODO: 여기에 매장 리스트를 필터링하는 로직을 추가하시면 됩니다.
+                // const selectedCategory = button.textContent.trim();
+                // console.log("선택된 카테고리:", selectedCategory);
+            });
+        });
+    }
 }); 
 
 function clearSearch() {

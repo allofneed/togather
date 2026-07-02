@@ -1,4 +1,35 @@
-.store-list-category-container{display: flex; text-align: left; padding: 14px 15px; gap: 10px; justify-content: center;}
-.store-list-category-container button{border: 1px solid 55555; padding: 5px 20px; background: transparent;}
+.store-list-category-container {
+    display: flex;
+    gap: 10px;
+    padding: 15px 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+    background-color: #fff; /* 배경색 필요시 수정 */
+    -ms-overflow-style: none; /* IE, Edge */
+    scrollbar-width: none; /* Firefox */
+}
 
+.store-list-category-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari 스크롤바 숨김 */
+}
 
+/* 💡 스타일 3번: 기본 버튼 상태 (연한 파란색 배경) */
+.store-list-category {
+    border: none;
+    background: #f0f4ff; /* 연한 블루 배경 */
+    color: #666;         /* 회색 텍스트 */
+    border-radius: 8px;  /* 둥근 모서리 */
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease; /* 부드러운 애니메이션 */
+}
+
+/* 💡 스타일 3번: 활성화(Active) 상태 (진한 파란색 배경 + 그림자) */
+.store-list-category.active {
+    background: #2b61e3; /* 메인 브랜드 컬러 */
+    color: #fff;         /* 흰색 텍스트 */
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(43, 97, 227, 0.3); /* 은은한 파란 그림자 */
+}

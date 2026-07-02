@@ -94,7 +94,21 @@ def picture():
 
 @app.route('/qr')
 def qr():
-    return render_template('pages/qr.html')
+    return "여기는 나중에 만들 QR 페이지입니다!" 
+
+@app.route('/store/<store_id>')
+def store_benefit(store_id):
+    try:
+        response = supabase.table("register_store").select("*").eq("id", store_id).execute()
+    
+        if response.data:
+            target_store = response.data[0] 
+            return render_template('pages/store_benefit.html', store=target_store)
+        else:
+            return "존재하지 않거나 삭제된 매장입니다. 😢", 404
+    except Exception as e:
+        print("QR 혜택 로드 실패:", str(e))
+        return "데이터를 불러오는 중 오류가 발생했습니다.", 500
 
 if __name__ == '__main__':
     from livereload import Server
