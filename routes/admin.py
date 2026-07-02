@@ -19,10 +19,11 @@ def admin_dashboard():
     current_user_name = session.get('user_name', '고객')
     return render_template('admin/dashboard.html', user_name=current_user_name)
 
-@admin_bp.route('/register_store', methods = ['GET', 'POST'])
+@admin_bp.route('/register_store', methods=['GET', 'POST'])
 def register_store():
     naver_key = os.getenv("NAVER_MAP_CLIENT_ID")
-    if request.method =='POST':
+    
+    if request.method == 'POST':
         try:
             store_image = request.files.get('store-img')
             store_name = request.form.get('store-name')
@@ -57,26 +58,40 @@ def register_store():
                 "category": store_category,
                 "main_address": store_base_address,
                 "sub_address": store_detail_address,
-                "latitude":float(latitude) if latitude else 0.0,
-                "longitude":float(longitude) if longitude else 0.0,
-                "benefit":store_benefit,
-                "benefit_condition":store_benefit_condition,
-                "hashtag_first":store_hashtag_first,
-                "hashtag_second":store_hashtag_second,
-                "hashtag_third":store_hashtag_third
+                "latitude": float(latitude) if latitude else 0.0,
+                "longitude": float(longitude) if longitude else 0.0,
+                "benefit": store_benefit,
+                "benefit_condition": store_benefit_condition,
+                "hashtag_first": store_hashtag_first,
+                "hashtag_second": store_hashtag_second,
+                "hashtag_third": store_hashtag_third
             }
-            supabase.table("register_store").insert(store_db_row).execute()
-            return jsonify({"success": True, "message": "스토어가 성공적으로 등록되었습니다."})
+            
+            insert_response = supabase.table("register_store").insert(store_db_row).execute()
+            
+            if insert_response.data:
+                new_store_id = insert_response.data[0]['id']
+                qr_url = f"https://togethriding.co.kr/store/{new_store_id}"
+                
+                return jsonify({
+                    "success": True, 
+                    "message": "스토어가 성공적으로 등록되었습니다.",
+                    "qr_url": qr_url
+                })
+            else:
+                return jsonify({"success": False, "message": "스토어 등록에 실패했습니다."}), 500
+                
         except Exception as e:
-                print("DB 저장 중 에러 발생:", str(e))
-                return jsonify({"success": False, "message": str(e)}), 500
-        
+            print("DB 저장 중 에러 발생:", str(e))
+            return jsonify({"success": False, "message": str(e)}), 500
+            
     try:
         response = supabase.table("register_store").select("*").execute()
         stores_list = response.data
     except Exception as e:
         stores_list = []
         print("스토어 목록 로드 실패:", str(e))
+        
     return render_template('admin/register_store.html', naver_map_id=naver_key, stores=stores_list)
             
 
