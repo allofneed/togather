@@ -12,4 +12,7 @@
 .benefit-wrap p{flex:1; color: #757575; font-weight: bold; font-size: 14px;}
 .benefit-qr-href-wrap{display: flex; flex:2; flex-direction: column; gap: 10px;}
 .benefit-wrap-span{display: flex; font-size: 14px;}
-.btn-solid{text-align: center; align-items: center; justify-content: center; background-color: #1a73e8; color:white; font-size: 15px; font-weight: bold; padding: 3px 8px; border-radius: 4px; margin-right: 12px; flex-shrink: 0;} 
+.btn-solid{text-align: center; align-items: center; justify-content: center; background-color: #1a73e8; color:white; font-size: 15px; font-weight: bold; padding: 10px 0px; border-radius: 4px; margin-right: 12px; flex-shrink: 0;} 
+
+.store-found-btn{display:block; width: 100%; margin-top: 10px; text-align: center; background-color: #1a73e8; color: white; border-radius: 4px;
+padding: 10px 0; text-decoration: none; cursor: pointer;}
