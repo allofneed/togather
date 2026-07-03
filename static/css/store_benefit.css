@@ -1,5 +1,5 @@
 .benefit-page-container{background: linear-gradient(to bottom, #e1eeff 0%, #f4f8ff 70%, #ffffff 100%); min-height: 100vh; padding-bottom: 40px; 
-  border-top-left-radius: 50px; border-top-right-radius: 50px; padding: 50px 20px; display: flex; flex-direction: column;
+  border-top-left-radius: 50px; border-top-right-radius: 50px; padding: 50px 20px; display: flex; flex-direction: column;}
 
 .benefit-check-icon{width: 10%; align-self: center; display: flex; justify-content: center; align-items: center; margin-bottom: 10px;}
 .benefit-qr-txt{display: flex; flex-direction: column; text-align: center; gap: 20px; margin-bottom: 10px; font-size: 15px;}
