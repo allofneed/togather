@@ -76,6 +76,22 @@ def store_list():
 
     return render_template('pages/store_list.html', stores=store_list)
 
+@app.route('/storepage/<int:store_id>')
+def store_page(store_id):
+    naver_key = os.getenv("NAVER_MAP_CLIENT_ID")
+    try:
+        response = supabase.table("register_store").select("*").eq("id", store_id).execute()
+        if len(response.data) > 0:
+            store_data = response.data[0]
+        else:
+            return "해당 매장을 찾을 수 없습니다.", 404
+        
+    except Exception as e:
+        print("상세페이지 로드 실패:", str(e))
+        return "에러가 발생했습니다"
+    
+    return render_template('pages/store_inf.html',store=store_data, naver_map_id=naver_key)
+
 @app.route('/reservationinf')
 def reservation_inf():
     return render_template('function/reservation_inf.html')
@@ -96,7 +112,7 @@ def picture():
 def qr():
     return "여기는 나중에 만들 QR 페이지입니다!" 
 
-@app.route('/store/<store_id>')
+@app.route('/store/<int:store_id>')
 def store_benefit(store_id):
     try:
         response = supabase.table("register_store").select("*").eq("id", store_id).execute()

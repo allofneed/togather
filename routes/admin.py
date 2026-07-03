@@ -94,7 +94,6 @@ def register_store():
         
     return render_template('admin/register_store.html', naver_map_id=naver_key, stores=stores_list)
             
-
 @admin_bp.route('/register_banner')
 def register_banner():
     return render_template('admin/register_banner.html')

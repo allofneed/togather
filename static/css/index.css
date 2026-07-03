@@ -31,10 +31,10 @@ padding-bottom: 10px; text-align: left; font-size: 15px; overflow: hidden;}
 .news-banner-container{display: flex; align-items: center; background-color: #f0f6ff; border-radius: 10px; padding: 10px 16px; margin:15px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.03);}
 .news-badge{background-color: #1a73e8; color:white; font-size: 11px; font-weight: bold; padding: 3px 8px; border-radius: 4px; margin-right: 12px; flex-shrink: 0;}
 .news-ticker-window {height: 20px; overflow: hidden; flex-grow: 1;}
-.news-ticker-track{display: flex; flex-direction: column; animation: rollingNews 9s infinite ease-in-out;}
+.news-ticker-track{display: flex; flex-direction: column; animation: rollingNews 9s infinite ease-in-out; text-align: center;}
 .news-item{height: 20px; line-height: 20px; font-size: 13px; color: #333333; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
 @keyframes rollingNews { 0%, 25%   { transform: translateY(0); }           
     33%, 58%  { transform: translateY(-20px); }       
     66%, 91%  { transform: translateY(-40px); }        
-    100%      { transform: translateY(-60px); }         
+    100%      { transform: translateY(-60px); }
 }

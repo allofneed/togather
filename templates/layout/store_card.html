@@ -1,4 +1,4 @@
-<div class="registered-store-container" data-category="{{store.category}}" data-name="{{store.name}}">
+<a class="registered-store-container" href="{{url_for('store_page', store_id=store.id)}}" data-category="{{store.category}}" data-name="{{store.name}}">
 
   <div class="registered-store-img-container">
     <p class="registered-store-category-tag">{{store.category}}</p>
@@ -30,4 +30,4 @@
       <span>{{store.hashtag_third}}</span>
     </div>
   </div>
-</div>
+</a>
