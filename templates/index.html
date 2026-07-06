@@ -1,4 +1,5 @@
 {% extends 'layout/main_layout.html' %}
+{% import 'macro/store-list-section.html' as ui with context %}
 {% block title %} 메인페이지 {% endblock %}
 
 {% block head %}
@@ -48,45 +49,9 @@
           </div>
       </div>
 
-        <div class="category-section" style="margin-bottom: 40px;">
-          <div class="store-category">    
-              <div class="catery-container">
-                  <h3>전체 매장</h3>
-                  </div>
-          </div>
-          <div class="store-wrapper">
-              {% for store in stores %}
-                  <div class="store-item">
-                      {% include 'layout/store_card.html' %}
-                  </div>
-              {% else %}
-                  <p class="empty-message">아직 등록된 스토어가 없습니다</p>
-              {% endfor %}
-          </div>
-          <div style="text-align: center; margin-top: 15px;">
-              <button class="show-more-btn" onclick="expandCards(this)">전체 매장 더보기 ∨</button>
-          </div>
-        </div>
-
-      <div class="category-section" style="margin-bottom: 40px;">
-          <div class="store-category">    
-              <div class="catery-container">
-                  <h3>카페·베이커리</h3>
-              </div>
-          </div>
-          <div class="store-wrapper">
-            {% for store in stores %}
-              {% if store.category == '카페·베이커리' %}
-                <div class="store-item">
-                  {% include 'layout/store_card.html' %}
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-          <div style="text-align: center; margin-top: 15px;">
-            <button class="show-more-btn" onclick="expandCards(this)">카페 더보기 ∨</button>
-          </div>
-      </div>
+      {{ ui.render_section('전체매장', 'all')}}
+      {{ ui.render_section('카페·베이커리', '카페·베이커리')}}
+      
     </div>
 </div>
 {% endblock %}

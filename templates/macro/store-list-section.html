@@ -1,0 +1,26 @@
+{% macro render_section(title, category_name) %}
+<div class="category-section" style="margin-bottom: 20px;">
+    
+    <div class="store-category">
+        <div class="catery-container">
+            <h3>{{ title }}</h3>
+        </div>
+    </div>
+
+    <div class="store-wrapper">
+        {% for store in stores %}
+            {% if category_name == 'all' or store.category == category_name %}
+                <div class="store-item">
+                    {% include 'layout/store_card.html' %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div style="text-align: center; margin-top: 15px;">
+        <button class="show-more-btn" onclick="expandCards(this)">{{ title }} 더보기
+            {% include 'icon/arrow-bottom.html' %}
+        </button>
+    </div>
+</div>
+{% endmacro %}
