@@ -10,7 +10,7 @@
       <span class="registered-store-name">{{store.name}}</span>
       <div class="registered-store-distance">
         <img src="{{url_for('static', filename='svg/distance.svg')}}" class="distance-icon">
-        <span id="distance-user">1.2km</span>
+        <span class="store-distance-value" data-lat="{{ store.latitude }}" data-lng="{{ store.longitude }}">계산 중...</span>
       </div>
     </div>
 

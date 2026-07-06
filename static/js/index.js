@@ -15,6 +15,18 @@ document.addEventListener("DOMContentLoaded", function() {
         isTracking = false; 
     });
 
+    // ⬇️⬇️⬇️ [추가된 부분 1: 위도/경도로 거리를 계산해주는 공식(함수) 추가] ⬇️⬇️⬇️
+    function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {
+        function deg2rad(deg) { return deg * (Math.PI/180); }
+        var R = 6371; 
+        var dLat = deg2rad(lat2 - lat1);
+        var dLon = deg2rad(lon2 - lon1);
+        var a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon/2) * Math.sin(dLon/2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return (R * c).toFixed(1); 
+    }
+    // ⬆️⬆️⬆️ [추가된 부분 1 끝] ⬆️⬆️⬆️
+
     function startTrackingLocation() {
         if (navigator.geolocation) {
             watchId = navigator.geolocation.watchPosition(function(position) {
@@ -78,6 +90,21 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
                 // ====================================================
+
+                // ⬇️⬇️⬇️ [추가된 부분 2: 실시간 내 위치(lat, lng)를 기반으로 매장 카드 거리 글자 업데이트] ⬇️⬇️⬇️
+                var distanceElements = document.querySelectorAll('.store-distance-value');
+                distanceElements.forEach(function(el) {
+                    var storeLat = parseFloat(el.getAttribute('data-lat'));
+                    var storeLng = parseFloat(el.getAttribute('data-lng'));
+                    
+                    if (storeLat && storeLng) {
+                        var calDistance = getDistanceFromLatLonInKm(lat, lng, storeLat, storeLng);
+                        el.innerText = calDistance + "km";
+                    } else {
+                        el.innerText = "- km"; 
+                    }
+                });
+                // ⬆️⬆️⬆️ [추가된 부분 2 끝] ⬆️⬆️⬆️
 
                 if (isTracking) {
                     map.setCenter(myPosition);
