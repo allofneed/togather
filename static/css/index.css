@@ -38,3 +38,7 @@ padding-bottom: 10px; text-align: left; font-size: 15px; overflow: hidden;}
     66%, 91%  { transform: translateY(-40px); }        
     100%      { transform: translateY(-60px); }
 }
+
+.store-wrapper .store-item:nth-child(n+3) { display: none; }
+.store-wrapper.expanded .store-item { display: block !important; }
+.show-more-btn { background-color: white; border: 1px solid #ccc; border-radius: 20px; padding: 10px 24px; color: #555; cursor: pointer; font-size: 14px; font-weight: bold; width: 100%; box-sizing: border-box; }

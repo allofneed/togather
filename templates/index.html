@@ -48,21 +48,46 @@
           </div>
       </div>
 
-      <div class = "store-category">    
-         
-        <div class = "catery-container">
-          <h3>카페·식당</h3>
-          <a class = "all-category" href="{{ url_for('store_list') }}"> 전체보기 ></a>
+        <div class="category-section" style="margin-bottom: 40px;">
+          <div class="store-category">    
+              <div class="catery-container">
+                  <h3>전체 매장</h3>
+                  </div>
+          </div>
+          <div class="store-wrapper">
+              {% for store in stores %}
+                  <div class="store-item">
+                      {% include 'layout/store_card.html' %}
+                  </div>
+              {% else %}
+                  <p class="empty-message">아직 등록된 스토어가 없습니다</p>
+              {% endfor %}
+          </div>
+          <div style="text-align: center; margin-top: 15px;">
+              <button class="show-more-btn" onclick="expandCards(this)">전체 매장 더보기 ∨</button>
+          </div>
         </div>
+
+      <div class="category-section" style="margin-bottom: 40px;">
+          <div class="store-category">    
+              <div class="catery-container">
+                  <h3>카페·베이커리</h3>
+              </div>
+          </div>
+          <div class="store-wrapper">
+            {% for store in stores %}
+              {% if store.category == '카페·베이커리' %}
+                <div class="store-item">
+                  {% include 'layout/store_card.html' %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <div style="text-align: center; margin-top: 15px;">
+            <button class="show-more-btn" onclick="expandCards(this)">카페 더보기 ∨</button>
+          </div>
       </div>
-        {% for store in stores %}
-          {% include 'layout/store_card.html' %}
-          {% else %}
-            <p class="empty-message">아직 등록된 스토어가 없습니다</p>
-          {% endfor %}
-
     </div>
-
 </div>
 {% endblock %}
 
