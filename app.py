@@ -108,10 +108,6 @@ def mypage():
 def picture():
     return render_template('pages/picture.html')
 
-@app.route('/qr')
-def qr():
-    return "여기는 나중에 만들 QR 페이지입니다!" 
-
 @app.route('/store/<int:store_id>')
 def store_benefit(store_id):
     try:
