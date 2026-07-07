@@ -73,4 +73,20 @@ document.addEventListener("DOMContentLoaded", function() {
     function onScanFailure(error) {
         // 패스
     }
+    
+    var mapDiv = document.getElementById('store-detail-map');
+    if(mapDiv){
+      var storeLat = parseFloat(mapDiv.getAttribute('data-lat'));
+      var storeLng = parseFloat(mapDiv.getAttribute('data-lng'));
+
+      var mapOptions = {
+        center: new naver.maps.LatLng(storeLat, storeLng),
+        zoom: 17
+      };
+      var map = new naver.maps.Map('store-detail-map', mapOptions);
+      var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(storeLat, storeLng),
+            map: map
+      });
+    }
 });

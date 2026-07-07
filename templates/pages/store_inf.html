@@ -54,7 +54,8 @@
       </div>
     </div>
   </div>
-  <div id="store-detail-map" style="width: 100%; height: 200px; margin-top: 15px; border-radius: 8px; border: 1px solid #eee;"></div>
+  <div id="store-detail-map" data-lat="{{ store.latitude | default(37.3595704) }}" data-lng="{{ store.longitude | default(127.105399) }}"
+  style="width: 100%; height: 200px; margin-top: 15px; border-radius: 8px; border: 1px solid #eee;"></div>
   <a href="https://map.naver.com/p/directions/-/{{ store.longitude }},{{ store.latitude }},{{ store.name }}/-/bike" target="_blank" class = "store-found-btn">{{store.name}} 길 찾기</a>
 </div>
 {% include 'modal/qr_modal.html' %}
