@@ -20,12 +20,11 @@
 .btn-solid {display: flex; justify-content: center; padding: 14px; border-radius: 8px; background-color: #1a73e8; color: white; border:none; font-size: 14px; cursor: pointer; }
 .store-found-btn { display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 16px; background-color: #1a73e8; color: white; border-radius: 8px; padding: 14px 0; text-decoration: none; font-size: 16px; font-weight: bold; margin-bottom: 100px; box-sizing: border-box; }
 
-.modal-overlay {display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6); z-index: 10000; 
-  justify-content: center; align-items: center;}
-.modal-overlay.active { display: flex; }
-.modal-content { background-color: #fff; padding: 30px 20px; border-radius: 20px; width: 90%; max-width: 400px; text-align: center; height: 100%; text-align: center; justify-content: center;
-align-items: center; }
-.modal-title { font-size: 18px; font-weight: bold; margin-bottom: 20px; }
-#qr-reader-modal { width: 100%; border-radius: 12px; overflow: hidden; border: 2px solid #2E92E0; }
-.modal-desc { margin-top: 15px; font-size: 13px; color: #666; }
-.modal-close-btn { margin-top: 20px; padding: 10px 30px; background-color: #f1f1f1; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+.modal-overlay{display:none; position: fixed; top: 0; left:0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); z-index: 10000;}
+.modal-overlay.active{display:flex;}
+.modal-content{background:transparent; box-shadow: none; width:100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;}
+.modal-title{color: #ffffff; font-size: 20px; font-weight: bold; margin-bottom: 30px;}
+#qr-reader-modal{width: 250px; height: 250px; border: 2px solid #ffffff; border-radius: 20px; overflow:hidden;}
+.modal-desc{color: #ffffff; font-size: 14px; margin-top: 30px;}
+.modal-close-btn{margin-top: 20px; padding: 12px 40px; background-color: #1a73e8; color: white; font-size: 14px; border:none; border-radius: 8px; width: 250px; 
+  cursor: pointer; font-weight: bold;}
