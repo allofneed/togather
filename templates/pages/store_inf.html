@@ -39,7 +39,7 @@
         <span>{{store.benefit}}</span>
         <span>{{store.benefit_condition}}</span>
       </div>
-      <button type="button" class="btn-solid open-qr-btn">QR 찍으러가기</button>
+      <button type="button" class="btn-solid" id="open-qr-btn">QR 찍으러가기</button>
     </div>
   </div>
 </div>
@@ -57,33 +57,13 @@
   <div id="store-detail-map" style="width: 100%; height: 200px; margin-top: 15px; border-radius: 8px; border: 1px solid #eee;"></div>
   <a href="https://map.naver.com/p/directions/-/{{ store.longitude }},{{ store.latitude }},{{ store.name }}/-/bike" target="_blank" class = "store-found-btn">{{store.name}} 길 찾기</a>
 </div>
-{% include 'modal/qr_moadal.html' %}
+{% include 'modal/qr_modal.html' %}
  
 {% endblock %}
 
 {% block script %}
 {{ super() }}
 <script src="{{url_for('static', filename='js/admin/regist.js')}}"></script>
-
-<script>
-    // 💡 1. 파이썬(Jinja2) 데이터를 JS로 안전하게 가져오기
-    // DB에 있는 'latitude', 'longitude'를 정확히 호출하고, parseFloat로 완벽한 숫자로 만듭니다.
-    var storeLat = parseFloat("{{ store.latitude | default(37.3595704) }}");
-    var storeLng = parseFloat("{{ store.longitude | default(127.105399) }}");
-
-    // 💡 2. 지도 초기 세팅 (어디를 중심으로, 얼마나 확대해서 보여줄 것인가?)
-    var mapOptions = {
-        center: new naver.maps.LatLng(storeLat, storeLng),
-        zoom: 17 // 숫자가 클수록 확대됩니다 (보통 매장 상세는 15~17이 예쁩니다)
-    };
-
-    // 💡 3. 아까 만들어둔 도화지(<div id="store-detail-map">)에 진짜 지도 그리기
-    var map = new naver.maps.Map('store-detail-map', mapOptions);
-
-    // 💡 4. 매장 위치에 빨간 핀(마커) 예쁘게 꽂기
-    var marker = new naver.maps.Marker({
-        position: new naver.maps.LatLng(storeLat, storeLng),
-        map: map
-    });
-</script>
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+<script src="{{url_for('static', filename='js/store_inf.js')}}"></script>
 {% endblock %}
