@@ -1,5 +1,6 @@
 .tab-container { display: flex; gap: 0; border-bottom: 2px solid #f1f1f1; margin-bottom: 24px; width: 100%; }
-.tab-btn { flex: 1; padding: 14px 5px; font-size: 15px; font-weight: 500; border: none; background: transparent; color: #aaaaaa; cursor: pointer; text-align: center; transition: all 0.2s ease; position: relative; bottom: -2px; border-bottom: 2px solid transparent; }
+.tab-btn { flex: 1; padding: 14px 5px; font-size: 15px; font-weight: 500; border: none; background: transparent; color: #aaaaaa; 
+  cursor: pointer; text-align: center; transition: all 0.2s ease; position: relative; bottom: -2px; border-bottom: 2px solid transparent; }
 .tab-btn.active { color: #222222; font-weight: bold; border-bottom: 2px solid #222222; }
 
 .tab-content-container { padding: 0 16px; box-sizing: border-box; }

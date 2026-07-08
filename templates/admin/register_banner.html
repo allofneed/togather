@@ -1,5 +1,64 @@
 {% extends 'layout/main_layout.html' %}
 {% block title %} 스토어 등록 {% endblock %}
 
+{% block css %}
+{{super()}}
+<link rel = "stylesheet" href ="{{url_for('static', filename='css/admin/register_banner.css')}}">
+{% endblock %}
+
 {% set header_title = "배너 등록" %}
+
+{% block content %}
+<div class = "tab-container">
+  <button type = "button" class = "tab-btn active" data-tab="register-banner-list">배너 목록</button>
+  <button type = "button" class = "tab-btn" data-tab="register-banner">+ 신규 등록</button>
+</div>
+
+<div class = "tab-content-container">
+  <div id="register-banner-list" class = "tab-content active">
+    asdadad
+  </div>
+
+  <div id = "register-banner" class="tab-content">
+    <form action = "{{url_for('admin.register_banner')}}" method="POST" enctype="multipart/form-data" id="store-register-form">
+      
+      <div class="form-group">
+        <label>배너 이미지</label>
+        <input type="file" id="bannerImgInput" name="banner-img" accept="image/*" style="display:none;">
+        <label for="bannerImgInput" class="btn-upload-img">
+          <span id="uploadText" style="font-size: 13px; color: #aaaaaa; text-align:center;">이미지 추가 +</span>
+          <img id = "bannerPreview" src="" alt="미리보기" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>배너 카테고리</label>
+        <select class="form-group-select" name="banner-category" id="selectbannercategory" required>
+          <option value="시흥소식">시흥소식</option>
+          <option value="반려견소식">반려견소식</option>
+        </select>
+      </div>
+
+      <div class = "form-group">
+        <label>홍보 소개 제목</label>
+        <input name="banner-inf" id="bannerinformation" placeholder="2026년 갯골생태 축제" required>
+      </div>
+
+      <div class = "form-group">
+        <label>랜딩 페이지(URL)</label>
+        <input name="banner-url" id="bannerinformation" placeholder="togettheriding.co.kr">
+      </div>
+
+      <button type="submit" class="submit-btn">배너 등록</button>
+    </form>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block script %}
+{{ super() }}
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="{{ url_for('static', filename='js/admin/register_banner.js') }}"></script>
+{% endblock %}
 

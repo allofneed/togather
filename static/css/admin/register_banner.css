@@ -1,0 +1,17 @@
+.tab-container{display:flex; gap:0; border-bottom: 2px solid #f1f1f1; margin-bottom: 24px; width: 100%;}
+.tab-btn{ flex:1; padding: 14px 4px; font-size: 15px; font-weight: 500; border: none; background: transparent; color:#aaaaaa; 
+cursor: pointer; text-align: center; transition: all 0.2s ease; position: relative; bottom: -2px; border-bottom: 2px solid transparent;}
+.tab-btn.active{color: #222222; font-weight: bold; border-bottom: 2px solid #222222;}
+
+
+.tab-content{display:none; padding: 0 20px;}
+.tab-content.active{display:block;}
+.form-group{display:flex; flex-direction: column; margin-bottom: 10px; gap: 15px;}
+.form-group label{font-size:14px; font-weight: bold; color: #222;}
+
+.btn-upload-img{display: flex; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center; cursor: pointer; padding: 30px 0;
+border: 1px solid #aaaaaa; margin-top: 10px; border-style: dashed; aspect-ratio: 3600/1200; border-radius: 7px;}
+.form-group select, input{padding: 12px; width: 100%; border:1px solid #ccc; border-radius: 6px; font-size: 14px; background-color: #fff;}
+
+
+.submit-btn{ width: 100%; background: #1AADB3; color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 14px; box-sizing: border-box; }
