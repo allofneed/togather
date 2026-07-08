@@ -20,7 +20,7 @@
   </div>
 
   <div id = "register-banner" class="tab-content">
-    <form action = "{{url_for('admin.register_banner')}}" method="POST" enctype="multipart/form-data" id="store-register-form">
+    <form action = "{{url_for('admin.register_banner')}}" method="POST" enctype="multipart/form-data" id="banner-register-form">
       
       <div class="form-group">
         <label>배너 이미지</label>
@@ -42,6 +42,15 @@
       <div class = "form-group">
         <label>홍보 소개 제목</label>
         <input name="banner-inf" id="bannerinformation" placeholder="2026년 갯골생태 축제" required>
+      </div>
+
+      <div class="form-group">
+        <label>게시 기간</label>
+          <div class = "banner-period">
+            <input type="date" name="start-date" id="startDate" class="date-picker">
+            <span>~</span>
+            <input type="date" name="end-date" id="endDate" class="date-picker">
+          </div>   
       </div>
 
       <div class = "form-group">

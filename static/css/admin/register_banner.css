@@ -13,5 +13,7 @@ cursor: pointer; text-align: center; transition: all 0.2s ease; position: relati
 border: 1px solid #aaaaaa; margin-top: 10px; border-style: dashed; aspect-ratio: 3600/1200; border-radius: 7px;}
 .form-group select, input{padding: 12px; width: 100%; border:1px solid #ccc; border-radius: 6px; font-size: 14px; background-color: #fff;}
 
-
+.banner-period{display: flex; align-items: center; gap: 15px;}
+.banner-period span{margin:0 5px; font-weight: bold; color: #555;}
+.date-picker{text-align: center; align-items: center; justify-content: center;}
 .submit-btn{ width: 100%; background: #1AADB3; color: white; border: none; padding: 16px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 14px; box-sizing: border-box; }

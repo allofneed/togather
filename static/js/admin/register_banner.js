@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
+  
+  //Tap function part
   const tabBtns = document.querySelectorAll('.tab-btn');
   const tabContents = document.querySelectorAll('.tab-content');
 
@@ -14,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  //bannerimage preview part
   const fileInput = document.getElementById('bannerImgInput');
   const previewImg = document.getElementById('bannerPreview');
   const uploadText = document.getElementById('uploadText');
@@ -32,6 +35,34 @@ document.addEventListener("DOMContentLoaded", function() {
           uploadText.style.display = 'none';
         }
       }
+    });
+  }
+
+  const bannerForm = document.getElementById('banner-register-form');
+
+  if(bannerForm){
+    bannerForm.addEventListener('submit', function(evenet){
+      event.preventDefault();
+      
+      const formData = new formData(this);
+      fetch('admin/register-banner/save',{
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if(data.status === 'success'){
+          alert('배너가 성공적으로 등록되었습니다!');
+          bannerForm.reset();
+          document.querySelector('[data-tab="register-banner-list"]').click();
+        }else{
+          alert('등록 실패: ' + data.message);
+        }
+      })
+      .catch(error => {
+        console.error('발송 에러:', error);
+        alert('서버와 통신하는 중 문제가 발생했습니다.');
+      });
     });
   }
 });
