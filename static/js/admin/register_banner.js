@@ -41,11 +41,11 @@ document.addEventListener("DOMContentLoaded", function() {
   const bannerForm = document.getElementById('banner-register-form');
 
   if(bannerForm){
-    bannerForm.addEventListener('submit', function(evenet){
+    bannerForm.addEventListener('submit', function(event){
       event.preventDefault();
       
-      const formData = new formData(this);
-      fetch('admin/register-banner/save',{
+      const formData = new FormData(this);
+      fetch('/admin/register_banner',{
         method: 'POST',
         body: formData
       })

@@ -94,9 +94,55 @@ def register_store():
         
     return render_template('admin/register_store.html', naver_map_id=naver_key, stores=stores_list)
             
-@admin_bp.route('/register_banner')
+@admin_bp.route('/register_banner', methods=['GET','POST'])
 def register_banner():
-    return render_template('admin/register_banner.html')
+    
+    if request.method == 'POST':
+        try:
+            banner_category = request.form.get('banner-category')
+            banner_title = request.form.get('banner-title')
+            start_date = request.form.get('start-date')
+            end_date = request.form.get('end-date')
+            banner_url = request.form.get('banner-url')
+            banner_image = request.files.get('banner-img')
+
+            if not banner_image:
+                return jsonify({"status": "error", "message": "배너 이미지는 필수입니다."}), 400
+            
+            file_extension = banner_image.filename.split('.')[-1]
+            unique_filename = f"{uuid.uuid4()}.{file_extension}"
+            file_bytes = banner_image.read()
+            
+            supabase.storage.from_("banner_images").upload(
+                path=unique_filename,
+                file=file_bytes,
+                file_options={"content-type": banner_image.content_type}
+            )
+
+            image_public_url = supabase.storage.from_("banner_images").get_public_url(unique_filename)
+
+            banner_db_row = {
+                "category": banner_category,
+                "title": banner_title,
+                "start_date": start_date,
+                "end_date": end_date,
+                "banner_url": banner_url,
+                "image_url":image_public_url
+            }
+            supabase.table("register_banner").insert(banner_db_row).execute()
+            return jsonify({"status": "success", "message": "배너가 성공적으로 등록되었습니다"})
+        
+        except Exception as e:
+            print("배너 저장 중 에러:", str(e))
+            return jsonify({"status": "error", "message": str(e)}), 500
+        
+    try:
+        response = supabase.table("register_banner").select("*").execute()
+        banners_list = response.data
+    except Exception as e:
+        print("배너 목록 로드 실패:", str(e))
+        banners_list = []
+    return render_template('admin/register_banner.html', banners=banners_list)
 
 # 반납관리 등은 추후 개발 예정
 # 고객 센터의 경우에도 추후, 타 지자체 운영시 니딩컴퍼니로 개발 관련 오류 위해

@@ -16,7 +16,9 @@
 
 <div class = "tab-content-container">
   <div id="register-banner-list" class = "tab-content active">
-    asdadad
+    {% for banner in banners %}
+      {{banner.title}}
+    {% endfor %}
   </div>
 
   <div id = "register-banner" class="tab-content">
@@ -41,7 +43,7 @@
 
       <div class = "form-group">
         <label>홍보 소개 제목</label>
-        <input name="banner-inf" id="bannerinformation" placeholder="2026년 갯골생태 축제" required>
+        <input name="banner-title" id="bannerinformation" placeholder="시흥시 갯골생태 축제" required>
       </div>
 
       <div class="form-group">
