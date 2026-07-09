@@ -15,9 +15,14 @@
 </div>
 
 <div class = "tab-content-container">
+
   <div id="register-banner-list" class = "tab-content active">
     {% for banner in banners %}
-      {{banner.title}}
+      <div class = "news-banner-container">
+        <div class="new-badge">{{banner.category}}</div>
+        <a href="{{banner.banner_url}}" class ="news-title">{{banner.title}}</a>
+      </div>
+      <img src ="{{banner.image_url}}" alt="{{banner.title}} 배너 이미지" style="width:100%; object-fit: cover; border-radius: 6px;">
     {% endfor %}
   </div>
 
@@ -33,13 +38,14 @@
         </label>
       </div>
 
-      <div class="form-group">
-        <label>배너 카테고리</label>
-        <select class="form-group-select" name="banner-category" id="selectbannercategory" required>
-          <option value="시흥소식">시흥소식</option>
-          <option value="반려견소식">반려견소식</option>
-        </select>
-      </div>
+        <div class="form-group">
+          <label>배너 카테고리</label>
+          <select class="form-group-select" name="banner-category" id="selectbannercategory" required>
+            <option value="공지">공지</option>
+            <option value="행사">행사</option>
+            <option value="소식">소식</option>
+          </select>
+        </div>
 
       <div class = "form-group">
         <label>홍보 소개 제목</label>

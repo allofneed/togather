@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   }
 
+  // input banner part post
   const bannerForm = document.getElementById('banner-register-form');
 
   if(bannerForm){
