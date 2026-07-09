@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
+
+    if (window.isRollingStared) return;
+    window.isRollingStared = true;
+
     var mapOptions = {
         center: new naver.maps.LatLng(37.35320025573827, 126.70152103090712),
         zoom: 17
@@ -104,6 +108,20 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
+    const track = document.getElementById('rolling-track');
+
+    setInterval(function(){
+        track.style.transition = 'transform 0.5s ease-in-out';
+        track.style.transform = 'translateY(-44px)';
+
+        setTimeout(function(){
+            track.style.transition = 'none';
+            void track.offsetHeight;
+            track.appendChild(track.firstElementChild);
+            track.style.transform = 'translateY(0)';
+        },500);
+    },3000);
 });
 
 function expandCards(btnElement) {

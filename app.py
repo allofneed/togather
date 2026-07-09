@@ -63,7 +63,14 @@ def index():
     except Exception as e:
         stores_list = []
         print("메인 페이지 스토어 로드 실피 :", str(e))
-    return render_template('index.html',user_name=current_user_name,user_role=current_user_role,naver_map_id=naver_key, stores=stores_list)
+
+    try:
+        banner_response = supabase.table("register_banner").select("*").execute()
+        banner_list = banner_response.data
+    except Exception as e:
+        banner_list = []
+        print("메인 페이지 배너 로드 실패", str(e))
+    return render_template('index.html',user_name=current_user_name,user_role=current_user_role,naver_map_id=naver_key, stores=stores_list, banners=banner_list)
 
 @app.route('/storelist')
 def store_list():

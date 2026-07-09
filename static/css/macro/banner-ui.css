@@ -1,0 +1,10 @@
+.text-banner-container{display:flex; align-items: center; background-color: #f0f6ff; border-radius: 10px; padding:10px 16px; margin: 15px 0;}
+.text-category{background-color: #1a73e8; color: white; font-size: 11px; font-weight: bold; padding: 3px 8px; border-radius: 4px; margin-right: 12px; flex-shrink: 0;}
+.text-category[data-category="행사"]{background-color: #FF5100;}
+.text-category[data-category="소식"]{background-color: #112591;}
+.text-title{font-size: 13px; font-weight: 500;}
+
+/* 롤링 파트 */
+.rolling-window{overflow: hidden; height: 44px; display: block; padding: 0 16px;}
+.text-banner-rolling{display:flex; flex-direction: column; transition: transform 0.5s ease-in-out; width: 100%;}
+.rolling-item{height: 44px; display:flex; align-items: center; width: 100%;}

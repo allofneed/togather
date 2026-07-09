@@ -1,9 +1,11 @@
 {% extends 'layout/main_layout.html' %}
+{% import 'macro/banner-ui.html' as banner_ui %}
 {% block title %} 스토어 등록 {% endblock %}
 
 {% block css %}
 {{super()}}
 <link rel = "stylesheet" href ="{{url_for('static', filename='css/admin/register_banner.css')}}">
+<link rel = "stylesheet" href ="{{url_for('static', filename='css/macro/banner-ui.css')}}">
 {% endblock %}
 
 {% set header_title = "배너 등록" %}
@@ -18,11 +20,7 @@
 
   <div id="register-banner-list" class = "tab-content active">
     {% for banner in banners %}
-      <div class = "news-banner-container">
-        <div class="new-badge">{{banner.category}}</div>
-        <a href="{{banner.banner_url}}" class ="news-title">{{banner.title}}</a>
-      </div>
-      <img src ="{{banner.image_url}}" alt="{{banner.title}} 배너 이미지" style="width:100%; object-fit: cover; border-radius: 6px;">
+    {{banner_ui.combo_banner(banner)}}
     {% endfor %}
   </div>
 

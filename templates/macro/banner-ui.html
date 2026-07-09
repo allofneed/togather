@@ -1,0 +1,35 @@
+<!-- import 'macro/banner-ui.html' as banner_ui  -->
+<!-- banner_ui. 사용 매크로 명(py 호출 값) -->
+
+<!-- 텍스트만 있는 배너 매크로 -->
+{% macro text_banner(banner) %}
+<div class = "text-banner-container">
+  <div class = "text-category" data-category="{{banner.category}}">{{banner.category}}</div>
+  <a href = "{{banner.banner_url}}" class = "text-title">{{banner.title}}</a>
+</div>
+{% endmacro %}
+
+<!-- 이미지만 있는 배너 매크로 -->
+{% macro img_banner(banner) %}
+<img src = "{{banner.image_url}}" alt="{{banner.title}}" style="width:100%; object-fit: cover; border-radius: 6px;">
+{% endmacro %}
+
+<!-- 텍스트 + 이미지 있는 배너 매크로 -->
+{% macro combo_banner(banner) %}
+  {{text_banner(banner)}}
+  {{img_banner(banner)}}
+{% endmacro %}
+
+<!-- 텍스트 배너 롤링 매크로 -->
+{% macro rolling_text_banner(text_banner_list) %}
+<div class = "text-banner-container rolling-window">
+  <div class = "text-banner-rolling" id="rolling-track">
+    {% for banner in text_banner_list %}
+      <div class = "rolling-item">
+        <div class = "text-category" data-category="{{banner.category}}">{{banner.category}}</div>
+        <a href="{{banner.banner_url}}" class = "text-title">{{banner.title}}</a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}
