@@ -16,7 +16,7 @@
 
 /* 좌측 썸네일 및 뱃지 영역 */
 .preview-store-img-container, .registered-store-img-container
-{ position: relative; width: 115px; height: 115px; flex-shrink: 0; margin-right: 14px; }
+{ position: relative; width: 115px; height: 115px; aspect-ratio: 1/1; background-color: #f1f3f5; flex-shrink: 0; margin-right: 14px; }
 .preview-store-img, .registered-store-img
 { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
 .preview-store-category-tag, .registered-store-category-tag 
