@@ -111,17 +111,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
     const track = document.getElementById('rolling-track');
 
-    setInterval(function(){
-        track.style.transition = 'transform 0.5s ease-in-out';
-        track.style.transform = 'translateY(-44px)';
+    if (track && track.children.length > 1) {
+        
+        const itemHeight = track.firstElementChild.offsetHeight; 
 
-        setTimeout(function(){
-            track.style.transition = 'none';
-            void track.offsetHeight;
-            track.appendChild(track.firstElementChild);
-            track.style.transform = 'translateY(0)';
-        },500);
-    },3000);
+        setInterval(function(){
+            track.style.transition = 'transform 0.5s ease-in-out';
+            track.style.transform = `translateY(-${itemHeight}px)`;
+
+            setTimeout(function(){
+                track.style.transition = 'none'; 
+                void track.offsetHeight; 
+                
+                track.appendChild(track.firstElementChild); 
+                track.style.transform = 'translateY(0)'; 
+            }, 500); 
+        }, 3000); 
+    }
 });
 
 function expandCards(btnElement) {
