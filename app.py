@@ -16,7 +16,15 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 @app.route('/')
 def login():
-    return render_template('login.html')
+
+    try:
+        imgbanner_response =supabase.table("register_banner").select("*").execute()
+        imgbanner_list = imgbanner_response.data
+    except Exception as e:
+        imgbanner_list = []
+        print("로그인 페이지 이미지 배너 로드 실패", str(e))
+
+    return render_template('login.html', imgbanners=imgbanner_list)
 
 @app.route('/login', methods=['POST'])
 def login_process():

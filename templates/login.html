@@ -1,4 +1,5 @@
 {% extends 'layout/common_layout.html' %}
+{% import 'macro/banner-ui.html' as banner_ui %}
 {% block title %} 투개더 로그인 {% endblock %}
 {% block css %}
   <link rel="preload" as="image" href="{{url_for('static', filename='img/background_summer_togettheriding.webp')}}">
@@ -10,6 +11,8 @@
 <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
 <link rel="stylesheet" href="{{url_for('static', filename='css/common_modal.css')}}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="{{url_for('static', filename='css/macro/banner-ui.css')}}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 {% endblock %}
 
 {% block content %}
@@ -31,6 +34,16 @@
       <a href="https://zrr.kr/kf7XxQ" class="sub-btn reservation-link"><i class="fas fa-calendar-alt"></i>실시간 예약 바로가기</a>
       <div class="sub-btn question-btn" id="btn-faq"><i class="fas fa-question-circle"></i>자주하는 질문 확인</div>
     </div>
+    
+    <div class = "swiper my-banner-swiper">
+      <div class="swiper-wrapper">
+        {% for banner in imgbanners %}
+          <div class="swiper-slide">
+            {{banner_ui.img_banner(banner)}}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
   
   {% include 'modal/checkwaynum.html' %}
@@ -38,5 +51,24 @@
 {% endblock %}
 
 {% block script %}
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="{{url_for('static', filename='js/common_modal.js')}}"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // 만약 배너가 1개라도 있다면 스와이퍼를 가동해라!
+      const swiperContainer = document.querySelector('.my-banner-swiper');
+      if (swiperContainer) {
+        const swiper = new Swiper('.my-banner-swiper', {
+          direction: 'horizontal', // 옆으로 넘기기
+          loop: true,              // 무한 롤링
+          spaceBetween: 10,        // 배너 사이 여백 10px
+          autoplay: {
+            delay: 3000,           // 3초마다 
+            disableOnInteraction: false, // 손으로 터치해도 자동 롤링 안 꺼짐
+          },
+          speed: 600,              // 스르륵 넘어가는 속도
+        });
+      }
+    });
+  </script>
 {% endblock %}
