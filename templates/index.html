@@ -1,4 +1,4 @@
-{% extends 'layout/main_layout.html' %}
+{% extends 'layout/empty_layout.html' if request.headers.get('X-Requested-With') == 'XMLHttpRequest' else 'layout/main_layout.html' %}
 {% import 'macro/store-list-section.html' as ui with context %}
 {% import 'macro/banner-ui.html' as banner_ui %}
 {% block title %} 메인페이지 {% endblock %}
