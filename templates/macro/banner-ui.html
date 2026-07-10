@@ -15,9 +15,13 @@
 {% endmacro %}
 
 <!-- 텍스트 + 이미지 있는 배너 매크로 -->
-{% macro combo_banner(banner) %}
+{% macro combo01_banner(banner) %}
   {{text_banner(banner)}}
   {{img_banner(banner)}}
+{% endmacro %}
+{% macro combo02_banner(banner) %}
+  {{img_banner(banner)}}
+  {{text_banner(banner)}}
 {% endmacro %}
 
 <!-- 텍스트 배너 롤링 매크로 -->
