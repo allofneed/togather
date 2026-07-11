@@ -1,7 +1,11 @@
 {% extends 'layout/main_layout.html' %}
 {% block title %} 마이페이지 {% endblock %}
 
-{% block header_title %}{{ super() }}asd{% endblock %}
+{% block css %}
+{{ super() }}
+{% endblock %}
+
+{% set header_title = "마이페이지" %}
 
 {% block content %}
 마이페이지

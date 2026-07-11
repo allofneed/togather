@@ -1,9 +1,13 @@
 {% extends 'layout/main_layout.html' %}
-{% block title %} 투게더 메시지 {% endblock %}
+{% block title %} 알림사항 {% endblock %}
 
-{% block header_title %}{{ super() }}asd{% endblock %}
+{% block css %}
+{{ super() }}
+{% endblock %}
+
+{% set header_title = "알림사항" %}
 
 {% block content %}
-투게더 메세지
+알림사항
 {% endblock %}
  
