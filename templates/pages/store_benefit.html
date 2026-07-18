@@ -24,22 +24,29 @@
   <div class="top-background">
     <img src="{{url_for('static', filename='img/benefit-background-top.webp')}}" alt="해변일러스트">
   </div>
-  <div class = "benefit-check-icon">
-    {% include 'icon/check-box.html' %}
-  </div>
+  <div class="coupon-wrapper">
+    <div class="coupon-top">
+      <div class = "benefit-check-icon">
+        {% include 'icon/check-box.html' %}
+      </div>
 
-  <div class = "benefit-qr-txt">
-    <h2>화면을 보여주세요!</h2>
-    <p><strong>{{store.name}}</strong>에서<br>사용가능한 쿠폰을 사용하세요!</p>
-  </div>
+      <div class = "benefit-qr-txt">
+        <h2>화면을 보여주세요!</h2>
+        <p><strong>{{store.name}}</strong>에서<br>사용가능한 쿠폰을 사용하세요!</p>
+      </div>
+    </div>
+    <div class="coupon-divider"></div>
 
-  <div class = "benefit-store-inf">
-    <p>{{store.benefit}} {{store.benefit_condition}}</p>
-    <p style="color: #333; font-size: 12px; font-weight: 400; margin: 10px 0  ; ">결제 전, 매장 담당자에게 화면을 보여주세요!</p>
-  </div>
+    <div class = "coupon-bottom">
+      <div class = "benefit-store-inf">
+        <p>{{store.benefit}} {{store.benefit_condition}}</p>
+        <p style="color: #333; font-size: 12px; font-weight: 400; margin: 10px 0  ; ">결제 전, 매장 담당자에게 화면을 보여주세요!</p>
+      </div>
 
-  <div class = "benefit-page-btn">
-    <a href="{{url_for('store_list')}}" class = "btn-solid">다른 매장 구경하기</a>
+      <div class = "benefit-page-btn">
+        <a href="{{url_for('store_list')}}" class = "btn-solid">다른 매장 구경하기</a>
+      </div>
+    </div>
   </div>
 </div>
 {% block footer %}{% endblock %}

@@ -1,7 +1,26 @@
 .store-benefit-container{background-color: #feb670; min-height: 90vh;}
-.top-background{width:100%}
-.top-background img{width:100%; display:block;-v}
-.benefit-check-icon{display:flex; justify-content: center; width:10%; text-align: center; margin:30px auto;}
+.top-background img{width:100%; display:block;}
+.coupon-wrapper{background-color: white; border-radius: 16px; position:relative; overflow: hidden; margin:30px; 
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); animation: slideUpFlyIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;}
+.coupon-top{padding: 30px 20px 20px;}
+.coupon-bottom{padding:20px; text-align: center;}
+.coupon-divider{position:relative; border-top: 2px dashed #e0e0e0; width: 100%;}
+.coupon-divider::before,.coupon-divider::after{content:''; position: absolute; top: -12px; width: 24px; height: 24px; 
+  background-color: #feb670; border-radius: 50%;}
+.coupon-divider::before{left:-12px;}
+.coupon-divider::after{right: -12px;}
+@keyframes slideUpFlyIn {
+  0% {
+    opacity: 0; 
+    transform: translateY(100px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+.benefit-check-icon{display:flex; justify-content: center; width:10%; text-align: center; margin:0 auto;}
 .benefit-qr-txt{display: flex; flex-direction: column; text-align: center; gap: 20px; font-size: 15px; margin-bottom: 20px;}
 
 .benefit-store-img{width:80%; justify-content: center; align-items: center; text-align: center; aspect-ratio: 1/1; object-fit: cover;
@@ -10,4 +29,4 @@ margin:0 auto; margin-bottom: 15px;}
 .benefit-store-inf{display:flex; flex-direction: column; text-align: center; font-size: 18px; font-weight: 500; margin-bottom: 20px;}
 
 .benefit-page-btn{display: flex; flex-direction: row; gap: 10px; justify-content: center;}
-.btn-solid{background-color: #1a73e8; color: white; padding: 10px 20px; border-radius: 17px; }
+.btn-solid{background-color: #1a73e8; color: white; padding: 10px 20px; border-radius: 10px; width: 100%; }
