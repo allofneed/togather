@@ -1,4 +1,4 @@
-.store-benefit-container{background-color: #feb670; min-height: 90vh;}
+.store-benefit-container{background-color: #feb670; min-height: 100vh;}
 .top-background img{width:100%; display:block;}
 .coupon-wrapper{background-color: white; border-radius: 16px; position:relative; overflow: hidden; margin:30px; 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); animation: slideUpFlyIn 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;}
@@ -26,7 +26,7 @@
 .benefit-store-img{width:80%; justify-content: center; align-items: center; text-align: center; aspect-ratio: 1/1; object-fit: cover;
 margin:0 auto; margin-bottom: 15px;}
 
-.benefit-store-inf{display:flex; flex-direction: column; text-align: center; font-size: 18px; font-weight: 500; margin-bottom: 20px;}
+.benefit-store-inf{display:flex; flex-direction: column; text-align: center; font-size: 18px; font-weight: 700; margin-bottom: 20px;}
 
 .benefit-page-btn{display: flex; flex-direction: row; gap: 10px; justify-content: center;}
-.btn-solid{background-color: #1a73e8; color: white; padding: 10px 20px; border-radius: 10px; width: 100%; }
+.btn-solid{background-color: #1a73e8; color: white; padding: 10px 20px; border-radius: 10px; width: 100%; font-weight: 700; }
