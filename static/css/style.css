@@ -5,10 +5,34 @@ body { background-color: #f0f2f5; display: flex; justify-content: center; min-he
 .mobile-container { display: flex; flex-direction: column; height: 100vh; width: 100%; max-width: 430px; margin: 0 auto; background-color: #ffffff; overflow-y: hidden; background-image: var(--vg-image, none); background-size: 100% 100%; background-position: center; background-repeat: no-repeat; box-shadow: 0 0 20px rgba(0,0,0,0.08); position: relative; }
 
 .user-info { font-size: 14px; font-weight: 500; color: white; z-index: 1; cursor: pointer; background-color: #2b9fa5; border-radius: 16px 16px 4px 16px; padding: 5px 10px; border: 1px solid #ddd; flex-shrink: 0; }
-.scroll-wrapper { display: flex; flex-direction: column; flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; min-height: calc(100vh-30px);}
-.content-area { flex: 1; }
-.footer { flex-shrink: 0; padding: 10px 20px 90px; text-align: center; }
-.footer p { font-size: 11px; color: #000000; line-height: 1.7; font-weight: 500; }
-.footer-link { color: #5b626e; text-decoration: none; margin: 0 5px; font-weight: 700; }
-.footer-link:hover { color: #111111; text-decoration: underline; }
-.footer a { text-decoration: none; color: inherit; }
+.scroll-wrapper { 
+  display: flex; 
+  flex-direction: column; 
+  flex: 1; 
+  overflow-y: auto; 
+  -webkit-overflow-scrolling: touch; 
+}
+
+/* 수정 없음: 남은 공간을 모두 차지하여 푸터를 바닥으로 밀어냄 */
+.content-area { 
+  flex: 1; 
+}
+
+/* 수정 2: HTML에 맞게 .footer-area로 이름 변경 */
+.footer-area { 
+  flex-shrink: 0; 
+  padding: 10px 20px 90px; /* 90px 패딩이 하단 네비게이션 바 공간을 확보해 줍니다 */
+  text-align: center; 
+}
+
+/* 푸터 내부 텍스트 스타일 (이름을 같이 맞춰주세요) */
+.footer-area p { 
+  font-size: 11px; 
+  color: #000000; 
+  line-height: 1.7; 
+  font-weight: 500; 
+}
+.footer-area a { 
+  text-decoration: none; 
+  color: inherit; 
+}

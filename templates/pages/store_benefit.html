@@ -20,43 +20,28 @@
     autoplay>
 </lottie-player>
 
-<div class = "benefit-page-container">
-
+<div clas = "store-benefit-container">
   <div class = "benefit-check-icon">
     {% include 'icon/check-box.html' %}
   </div>
 
   <div class = "benefit-qr-txt">
     <h2>화면을 보여주세요!</h2>
-    <p><strong>{{store.name}}</strong>에서<br>사용가능한 쿠폰을 받아가세요!</p>
+    <p><strong>{{store.name}}</strong>에서<br>사용가능한 쿠폰을 사용하세요!</p>
   </div>
 
-  <div class = "benefit-store-card">
-    {% include 'layout/store_card.html' %}
+  <div class = "benefit-store-img">
+    <img class="registered-store-img" src="{{store.img_url}}" alt="미리보기 메인 이미지" loading="lazy">
   </div>
 
-  <div class ="benefit-coupon">
-    <h3>사용 가능한 쿠폰</h3>
-  </div>
-
-  <div class = "benefit-use-notice-container">
-    
-    <div class = "benefit-use-notice-icon">
-      {% include 'icon/dog.html' %}
-    </div>
-
-    <div class = "benefit-use-inf">
-      <h3>쿠폰 사용 안내</h3>
-      <ul>
-        <li>결제 전 쿠폰을 제시해주세요.</li>
-        <li>중복 사용은 불가합니다</li>
-      </ul>  
-    </div>
+  <div class = "benefit-store-inf">
+    <p>{{store.benefit}} {{store.benefit_condition}}</p>
+    <p style="color: #333; font-size: 12px; font-weight: 400; margin: 10px 0  ; ">결제 전, 매장 담당자에게 화면을 보여주세요!</p>
   </div>
 
   <div class = "benefit-page-btn">
-    <a href="#" class = "btn-outline">매장 상세보기</a>
     <a href="{{url_for('store_list')}}" class = "btn-solid">다른 매장 구경하기</a>
   </div>
 </div>
+
 {% endblock %}    
