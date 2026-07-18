@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="{{url_for('static', filename='css/store_benefit.css')}}">
 {% endblock %}
 
-{% set header_title = "쿠폰 혜택" %}
+{% set header_title = store.name %}
 
 {% block content %}
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
@@ -20,7 +20,10 @@
     autoplay>
 </lottie-player>
 
-<div clas = "store-benefit-container">
+<div class = "store-benefit-container">
+  <div class="top-background">
+    <img src="{{url_for('static', filename='img/benefit-background-top.webp')}}" alt="해변일러스트">
+  </div>
   <div class = "benefit-check-icon">
     {% include 'icon/check-box.html' %}
   </div>
@@ -28,10 +31,6 @@
   <div class = "benefit-qr-txt">
     <h2>화면을 보여주세요!</h2>
     <p><strong>{{store.name}}</strong>에서<br>사용가능한 쿠폰을 사용하세요!</p>
-  </div>
-
-  <div class = "benefit-store-img">
-    <img class="registered-store-img" src="{{store.img_url}}" alt="미리보기 메인 이미지" loading="lazy">
   </div>
 
   <div class = "benefit-store-inf">
