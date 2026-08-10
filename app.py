@@ -140,7 +140,6 @@ def store_benefit(store_id):
 
 if __name__ == '__main__':
     from livereload import Server
-    fetch_and_sync_orders()
     app.debug = True
     server = Server(app.wsgi_app)
     server.serve(port=5003)
