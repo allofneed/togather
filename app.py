@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from flask import Flask, render_template, jsonify, request, redirect, url_for, session
 from supabase import create_client, Client
 
+
 load_dotenv()
 from routes.admin import admin_bp
 app = Flask(__name__)
@@ -139,6 +140,7 @@ def store_benefit(store_id):
 
 if __name__ == '__main__':
     from livereload import Server
+    fetch_and_sync_orders()
     app.debug = True
     server = Server(app.wsgi_app)
     server.serve(port=5003)
