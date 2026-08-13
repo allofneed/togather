@@ -39,7 +39,7 @@ def login_process():
     except ValueError:
         return "<script>alert('숫자로만 입력해 주세요.'); history.back();</script>"
     try:
-        response = supabase.table('users').select("*").eq('user_number', user_input_num).execute()
+        response = supabase.table('users').select("*").eq('user_id', user_input_num).execute()
 
         print(f"--- DB 응답 결과 확인 ---")
         print(response.data) 
