@@ -1,0 +1,28 @@
+{% extends 'layout/main_layout.html' %}
+{% block title %} 고객관리 {% endblock %}
+
+{% set header_title = "고객관리" %}
+
+{% block content %}
+<table border="1">
+  <thead>
+    <tr>
+      <th>예약자명</th>
+      <th>옵션</th>
+      <th>연락처(4자리)</th>
+      <th>문자발송</th>
+      <th>대여상태</th>
+    </tr>
+  </thead>
+  <tbody id="order-table-body">
+    <tr>
+      <td colspan="6" style="text-align: center">데이터를 불러오는 중입니다</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock %}
+
+{% block script %}
+{{ super() }}
+<script src="{{ url_for('static', filename='js/admin/orderer_list.js') }}"></script>
+{% endblock %}

@@ -144,8 +144,17 @@ def register_banner():
         banners_list = []
     return render_template('admin/register_banner.html', banners=banners_list)
 
-# 반납관리 등은 추후 개발 예정
-# 고객 센터의 경우에도 추후, 타 지자체 운영시 니딩컴퍼니로 개발 관련 오류 위해
+@admin_bp.route('/orderer_list')
+def orderer_list():
+    return render_template('admin/orderer_list.html')
+
+@admin_bp.route('/api/orderer_list')
+def api_orderer_list():
+    try:
+        response = supabase.table("users").select("*").order("order_date", desc=True).execute()
+        return jsonify({"status": "success", "data": response.data})
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)})
 
 @admin_bp.route('/develop_note')
 def develop_note():
