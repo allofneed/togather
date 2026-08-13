@@ -34,12 +34,9 @@ def login_process():
 
     if not user_input:
         return "<script>alert('주문번호를 입력해 주세요.'); history.back();</script>"
+
     try:
-        user_input_num = int(user_input)
-    except ValueError:
-        return "<script>alert('숫자로만 입력해 주세요.'); history.back();</script>"
-    try:
-        response = supabase.table('users').select("*").eq('user_id', user_input_num).execute()
+        response = supabase.table('users').select("*").eq('user_id', user_input).execute()
 
         print(f"--- DB 응답 결과 확인 ---")
         print(response.data) 
