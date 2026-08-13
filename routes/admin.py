@@ -156,6 +156,23 @@ def api_orderer_list():
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)})
 
+@admin_bp.route('/api/update_status', methods=['POST'])
+def api_update_status():
+    try:
+        data = request.get_json()
+        order_id = data.get("product_order_id") 
+        new_status = data.get("renter_state")   
+
+        if not order_id or not new_status:
+            return jsonify({"status": "error", "message": "데이터가 부족합니다."})
+        supabase.table("users").update({"renter_state": new_status}).eq("product_order_id", order_id).execute()
+        
+        return jsonify({"status": "success"})
+        
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)})
+
+
 @admin_bp.route('/develop_note')
 def develop_note():
     return render_template('admin/develop_note.html')

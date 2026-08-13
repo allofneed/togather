@@ -1,14 +1,18 @@
 {% extends 'layout/main_layout.html' %}
 {% block title %} 고객관리 {% endblock %}
 
+{% block css %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/admin/orderer_list.css')}}">
+{% endblock %}
+
 {% set header_title = "고객관리" %}
 
 {% block content %}
-<div id = "date-tabs-container" style = "margin-bottom: 20px; gap: 10px; display:flex; flex-wrap: wrap;">
-  
+<div id = "date-tabs-container" >
 </div>
 
-<table border="1">
+<table>
   <thead>
     <tr>
       <th>예약자명</th>
@@ -25,7 +29,24 @@
   </tbody>
 </table>
 
-<p style="font-size:20px; margin-top: 10px; font-weight: bold; text-align: center;">디자인은 너무 귀찮아~ <br>기능부터 만들고 빠르게 해야징</p>
+<template id = "order-row-template">
+  <tr>
+    <td class="td-name"></td>
+    <td class="td-bike"></td>
+    <td class="td-phone"></td>
+    <td>
+      <button class="sms-btn">문자발송</button>
+    </td>
+    <td>
+      <select class="status-select">
+        <option value = "예약">예약</option>
+        <option value = "대여중">대여중</option>
+        <option value = "반납">반납</option>
+      </select>
+    </td>
+  </tr>
+</template>
+
 {% endblock %}
 
 {% block script %}

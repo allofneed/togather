@@ -1,0 +1,66 @@
+ #date-tabs-container {
+    display: flex;
+    flex-wrap: nowrap; 
+    overflow-x: auto;  
+    gap: 8px;
+    padding-bottom: 8px; 
+    margin: 0 10px 20px;
+    -webkit-overflow-scrolling: touch; 
+  }
+  #date-tabs-container::-webkit-scrollbar { height: 6px; }
+  #date-tabs-container::-webkit-scrollbar-thumb { background-color: #d1d5db; border-radius: 4px; }
+
+  .date-btn {
+    flex: 0 0 auto;
+    padding: 8px 16px;
+    background-color: #f1f5fe; 
+    color: #1a56d6;          
+    border: 1px solid #1a56d6;
+    border-radius: 20px;      
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease; 
+  }
+
+  .date-btn.active {
+    background-color: #1a56d6;
+    color: #ffffff;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 12px 4px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .sms-btn {
+    background-color: #f1f5fe;
+    color: #1a56d6;
+    border: 1px solid #1a56d6;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .sms-btn:hover {
+    background-color: #1a56d6;
+    color: #ffffff;
+  }
+
+  .status-select {
+    border: 1px solid #1a56d6;
+    background-color: #ffffff;
+    color: #333333;
+    padding: 4px 2px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    outline: none;
+  }
