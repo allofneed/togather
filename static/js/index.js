@@ -5,7 +5,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     var mapOptions = {
         center: new naver.maps.LatLng(37.35320025573827, 126.70152103090712),
-        zoom: 17
+        zoom: 17,
+        // ✨ 1. 화면에 확대/축소(+,-) 버튼 다시 살리기
+        zoomControl: true, 
+        zoomControlOptions: {
+            position: naver.maps.Position.TOP_RIGHT
+        }
     };
     var map = new naver.maps.Map('map', mapOptions);
 
@@ -15,10 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
             var lng = parseFloat(store.longitude);
 
             if (!isNaN(lat) && !isNaN(lng)) {
-
-                let markerImgSrc = "/static/svg/marker_default.png"; 
-                let bgColor = "#1a56d6"; 
-
+                let markerImgSrc = "/static/svg/marker_default.svg"; 
                 const category = store.category || ''; 
 
                 if (category === '카페·베이커리') {
@@ -34,16 +36,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
 
                 var storeMarkerHtml = `
-                    <div style="
-                        width: 70px; 
-                        height: 70px; 
-                        pointer-events: none;
-                        transition: transform 0.3s ease-out;
-                    ">
+                    <div style="width: 40px; height: 40px; pointer-events: none;">
                         <img src="${markerImgSrc}" alt="${category}" style="width: 100%; height: 100%; object-fit: contain;">
                     </div>
                 `;
-
+                
                 new naver.maps.Marker({
                     position: new naver.maps.LatLng(lat, lng),
                     map: map,
@@ -63,9 +60,11 @@ document.addEventListener("DOMContentLoaded", function() {
     var isTracking = true; 
     var lastRecordedPosition = null;
 
-    naver.maps.Event.addListener(map, 'dragstart', function() {
-        isTracking = false; 
-    });
+    // ✨ 2. 사용자가 지도를 조작하려고 하면 GPS 추적을 즉시 멈추는 완벽한 방어막!
+    naver.maps.Event.addListener(map, 'dragstart', function() { isTracking = false; });
+    naver.maps.Event.addListener(map, 'pinchstart', function() { isTracking = false; }); // 두 손가락 줌
+    naver.maps.Event.addListener(map, 'zoom_changed', function() { isTracking = false; }); // 줌 변경
+    naver.maps.Event.addListener(map, 'touchstart', function() { isTracking = false; }); // 모바일 터치
 
     function startTrackingLocation() {
         if (navigator.geolocation) {
@@ -76,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 var heading = position.coords.heading || 0; 
 
                 var markerHtml = `
-                    <div style="transform: rotate(${heading}deg); width: 40px; height: 40px; transition: transform 0.3s ease-out;">
+                    <div style="transform: rotate(${heading}deg); width: 40px; height: 40px; transition: transform 0.3s ease-out; pointer-events: none;">
                         <img src="/static/svg/dog_paw.svg" style="width: 100%; height: 100%;">
                     </div>
                 `;
@@ -107,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     
                     if (distance > 5) { 
                         var trailHtml = `
-                            <div style="transform: rotate(${heading}deg); width: 30px; height: 30px; opacity: 0.4;">
+                            <div style="transform: rotate(${heading}deg); width: 30px; height: 30px; opacity: 0.4; pointer-events: none;">
                                 <img src="/static/svg/dog_paw.svg" style="width: 100%; height: 100%;">
                             </div>
                         `;
