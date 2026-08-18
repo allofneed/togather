@@ -37,6 +37,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     <div style="
                         width: 70px; 
                         height: 70px; 
+                        pointer-events: none;
+                        transition: transform 0.3s ease-out;
                     ">
                         <img src="${markerImgSrc}" alt="${category}" style="width: 100%; height: 100%; object-fit: contain;">
                     </div>
