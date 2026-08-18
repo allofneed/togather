@@ -8,7 +8,64 @@ document.addEventListener("DOMContentLoaded", function() {
         zoom: 17
     };
     var map = new naver.maps.Map('map', mapOptions);
-    
+
+    if (typeof storeDataList !== 'undefined' && storeDataList.length > 0) {
+        storeDataList.forEach(function(store) {
+            var lat = parseFloat(store.latitude);
+            var lng = parseFloat(store.longitude);
+
+            if (!isNaN(lat) && !isNaN(lng)) {
+
+                let iconEmoji = "🏠";
+                let bgColor = "#1a56d6"
+
+                const category = store.category || ''; // 카테고리 정보 가져오기
+
+                if (category === '카페·베이커리') {
+                    iconEmoji = "☕";
+                    bgColor = "#e67e22"; // 주황색
+                } else if (category === '식당') {
+                    iconEmoji = "🍽️";
+                    bgColor = "#e74c3c"; // 빨간색
+                } else if (category === '놀거리(나들이)') {
+                    iconEmoji = "🎡";
+                    bgColor = "#9b59b6"; // 보라색
+                } else if (category === '반려동물 용품') {
+                    iconEmoji = "🦴";
+                    bgColor = "#27ae60"; // 초록색
+                }
+
+                var storeMarkerHtml = `
+                    <div style="
+                        width: 36px; 
+                        height: 36px; 
+                        background-color: ${bgColor};
+                        border-radius: 50%; 
+                        border: 3px solid #ffffff; 
+                        box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 16px;
+                    ">
+                        ${iconEmoji}
+                    </div>
+                `;
+                
+                new naver.maps.Marker({
+                    position: new naver.maps.LatLng(lat, lng),
+                    map: map,
+                    title: store.name,
+                    icon: {
+                        content: storeMarkerHtml,
+                        size: new naver.maps.Size(36, 36),
+                        anchor: new naver.maps.Point(18, 18) // map -> maps로 수정!
+                    }
+                });
+            }
+        });
+    }
+
     var myLocationMarker = null; 
     var watchId = null;
     var isTracking = true; 
@@ -112,7 +169,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const track = document.getElementById('rolling-track');
 
     if (track && track.children.length > 1) {
-        
         const itemHeight = track.firstElementChild.offsetHeight; 
 
         setInterval(function(){
@@ -131,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 function expandCards(btnElement) {
-        var wrapper = btnElement.parentElement.previousElementSibling;
-        wrapper.classList.add('expanded');
-        btnElement.style.display = 'none';
-    }
+    var wrapper = btnElement.parentElement.previousElementSibling;
+    wrapper.classList.add('expanded');
+    btnElement.style.display = 'none';
+}

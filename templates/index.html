@@ -50,6 +50,7 @@
 {% endblock %}
 
 {% block script %}
-    <script src="{{ url_for('static', filename='js/bottom_nav.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+<script>storeDataList = JSON.parse('{{ stores | tojson | safe }}');</script>
+<script src="{{ url_for('static', filename='js/bottom_nav.js') }}"></script>
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 {% endblock %}
