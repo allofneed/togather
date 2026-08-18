@@ -12,7 +12,7 @@
 /* preview-group */
 /* 카드 메인 컨테이너 (430px 최적화) */
 .preview-container, .registered-store-container
-{ display: flex; width: 100%; max-width: 430px; background-color: #ffffff; padding: 14px; margin: 0 auto; border-radius: 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
+{ display: flex; width: 100%; max-width: 430px; background-color: #ffffff; padding: 14px; margin: 10px auto; border-radius: 12px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); }
 
 /* 좌측 썸네일 및 뱃지 영역 */
 .preview-store-img-container, .registered-store-img-container
