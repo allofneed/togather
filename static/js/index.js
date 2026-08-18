@@ -16,50 +16,40 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (!isNaN(lat) && !isNaN(lng)) {
 
-                let iconEmoji = "🏠";
-                let bgColor = "#1a56d6"
+                let markerImgSrc = "/static/svg/marker_default.png"; 
+                let bgColor = "#1a56d6"; 
 
-                const category = store.category || ''; // 카테고리 정보 가져오기
+                const category = store.category || ''; 
 
                 if (category === '카페·베이커리') {
-                    iconEmoji = "☕";
-                    bgColor = "#e67e22"; // 주황색
+                    markerImgSrc = "/static/svg/map_log/카페·베이커리.svg"; 
                 } else if (category === '식당') {
-                    iconEmoji = "🍽️";
-                    bgColor = "#e74c3c"; // 빨간색
+                    markerImgSrc = "/static/svg/map_log/식당.svg";
                 } else if (category === '놀거리(나들이)') {
-                    iconEmoji = "🎡";
-                    bgColor = "#9b59b6"; // 보라색
+                    markerImgSrc = "/static/svg/map_log/놀거리(나들이).svg";
                 } else if (category === '반려동물 용품') {
-                    iconEmoji = "🦴";
-                    bgColor = "#27ae60"; // 초록색
+                    markerImgSrc = "/static/svg/map_log/반려동물 용품.svg";
+                } else if (category === '투개더대여소') {
+                    markerImgSrc = "/static/svg/map_log/투개더본부.svg";
                 }
 
                 var storeMarkerHtml = `
                     <div style="
-                        width: 36px; 
-                        height: 36px; 
-                        background-color: ${bgColor};
-                        border-radius: 50%; 
-                        border: 3px solid #ffffff; 
-                        box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 16px;
+                        width: 70px; 
+                        height: 70px; 
                     ">
-                        ${iconEmoji}
+                        <img src="${markerImgSrc}" alt="${category}" style="width: 100%; height: 100%; object-fit: contain;">
                     </div>
                 `;
-                
+
                 new naver.maps.Marker({
                     position: new naver.maps.LatLng(lat, lng),
                     map: map,
                     title: store.name,
                     icon: {
                         content: storeMarkerHtml,
-                        size: new naver.maps.Size(36, 36),
-                        anchor: new naver.maps.Point(18, 18) // map -> maps로 수정!
+                        size: new naver.maps.Size(40, 40),
+                        anchor: new naver.maps.Point(20, 20)
                     }
                 });
             }
