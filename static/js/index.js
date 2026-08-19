@@ -6,11 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var mapOptions = {
         center: new naver.maps.LatLng(37.35320025573827, 126.70152103090712),
         zoom: 17,
-        // ✨ 1. 화면에 확대/축소(+,-) 버튼 다시 살리기
-        zoomControl: true, 
-        zoomControlOptions: {
-            position: naver.maps.Position.TOP_RIGHT
-        }
+        zoomControl: false
     };
     var map = new naver.maps.Map('map', mapOptions);
 
@@ -24,16 +20,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 const category = store.category || ''; 
 
                 if (category === '카페·베이커리') {
-                    markerImgSrc = "/static/svg/map_log/카페·베이커리.svg"; 
+                    markerImgSrc = "/static/svg/map_log/marker_cafe.svg"; 
                 } else if (category === '식당') {
-                    markerImgSrc = "/static/svg/map_log/식당.svg";
+                    markerImgSrc = "/static/svg/map_log/marker_food.svg"; 
                 } else if (category === '놀거리(나들이)') {
-                    markerImgSrc = "/static/svg/map_log/놀거리(나들이).svg";
+                    markerImgSrc = "/static/svg/map_log/marker_play.svg"; 
                 } else if (category === '반려동물 용품') {
-                    markerImgSrc = "/static/svg/map_log/반려동물 용품.svg";
+                    markerImgSrc = "/static/svg/map_log/marker_pet.svg"; 
                 } else if (category === '투개더대여소') {
-                    markerImgSrc = "/static/svg/map_log/투개더본부.svg";
-                }
+                    markerImgSrc = "/static/svg/map_log/marker_togetthe.svg";
 
                 var storeMarkerHtml = `
                     <div style="width: 40px; height: 40px; pointer-events: none;">
@@ -60,11 +55,10 @@ document.addEventListener("DOMContentLoaded", function() {
     var isTracking = true; 
     var lastRecordedPosition = null;
 
-    // ✨ 2. 사용자가 지도를 조작하려고 하면 GPS 추적을 즉시 멈추는 완벽한 방어막!
     naver.maps.Event.addListener(map, 'dragstart', function() { isTracking = false; });
-    naver.maps.Event.addListener(map, 'pinchstart', function() { isTracking = false; }); // 두 손가락 줌
-    naver.maps.Event.addListener(map, 'zoom_changed', function() { isTracking = false; }); // 줌 변경
-    naver.maps.Event.addListener(map, 'touchstart', function() { isTracking = false; }); // 모바일 터치
+    naver.maps.Event.addListener(map, 'pinchstart', function() { isTracking = false; });
+    naver.maps.Event.addListener(map, 'zoom_changed', function() { isTracking = false; });
+    naver.maps.Event.addListener(map, 'touchstart', function() { isTracking = false; });
 
     function startTrackingLocation() {
         if (navigator.geolocation) {
