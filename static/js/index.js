@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const isMobile = window.innerWidth <= 768;
     
     // ✨ 2. 매장 마커 크기 설정 (모바일은 90px, PC는 80px)
-    const storeMarkerSize = isMobile ? 90 : 80;
+    const storeMarkerSize = isMobile ? 90 : 10;
     const storeAnchor = storeMarkerSize / 2;
 
     // ✨ 3. 내 위치(발바닥) 마커 크기 설정 (모바일은 60px, PC는 40px)
@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     markerImgSrc = "/static/svg/map_log/marker_togetthe.svg";
                 }
                 
-                // HTML 크기에 동적 변수(storeMarkerSize) 적용
                 var storeMarkerHtml = `
                     <div style="width: ${storeMarkerSize}px; height: ${storeMarkerSize}px; pointer-events: none;">
                         <img src="${markerImgSrc}" alt="${category}" style="width: 100%; height: 100%; object-fit: contain;">
@@ -59,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     title: store.name,
                     icon: {
                         content: storeMarkerHtml,
-                        // 네이버 지도 아이콘 크기에도 동적 변수 적용
                         size: new naver.maps.Size(storeMarkerSize, storeMarkerSize),
                         anchor: new naver.maps.Point(storeAnchor, storeAnchor)
                     }
@@ -86,7 +84,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 var myPosition = new naver.maps.LatLng(lat, lng);
                 var heading = position.coords.heading || 0; 
 
-                // 발바닥 마커 크기에 동적 변수(myLocSize) 적용
                 var markerHtml = `
                     <div style="transform: rotate(${heading}deg); width: ${myLocSize}px; height: ${myLocSize}px; transition: transform 0.3s ease-out; pointer-events: none;">
                         <img src="/static/svg/dog_paw.svg" style="width: 100%; height: 100%;">
