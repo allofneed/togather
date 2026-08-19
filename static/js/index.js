@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     title: store.name,
                     icon: {
                         content: storeMarkerHtml,
-                        size: new naver.maps.Size(40, 40),
-                        anchor: new naver.maps.Point(20, 20)
+                        size: new naver.maps.Size(70, 70),
+                        anchor: new naver.maps.Point(35, 35)
                     }
                 });
             }
