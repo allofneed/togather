@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     markerImgSrc = "/static/svg/map_log/marker_pet.svg"; 
                 } else if (category === '투개더대여소') {
                     markerImgSrc = "/static/svg/map_log/marker_togetthe.svg";
-
+                }
                 var storeMarkerHtml = `
                     <div style="width: 40px; height: 40px; pointer-events: none;">
                         <img src="${markerImgSrc}" alt="${category}" style="width: 100%; height: 100%; object-fit: contain;">
