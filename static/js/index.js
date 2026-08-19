@@ -10,6 +10,21 @@ document.addEventListener("DOMContentLoaded", function() {
     };
     var map = new naver.maps.Map('map', mapOptions);
 
+    // ✨ 1. 화면 크기를 감지하여 모바일인지 PC인지 판단합니다.
+    const isMobile = window.innerWidth <= 768;
+    
+    // ✨ 2. 매장 마커 크기 설정 (모바일은 90px, PC는 80px)
+    const storeMarkerSize = isMobile ? 90 : 80;
+    const storeAnchor = storeMarkerSize / 2;
+
+    // ✨ 3. 내 위치(발바닥) 마커 크기 설정 (모바일은 60px, PC는 40px)
+    const myLocSize = isMobile ? 60 : 40;
+    const myLocAnchor = myLocSize / 2;
+
+    // ✨ 4. 궤적(지나온 길) 마커 크기 설정 (모바일은 45px, PC는 30px)
+    const trailSize = isMobile ? 45 : 30;
+    const trailAnchor = trailSize / 2;
+
     if (typeof storeDataList !== 'undefined' && storeDataList.length > 0) {
         storeDataList.forEach(function(store) {
             var lat = parseFloat(store.latitude);
@@ -30,8 +45,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 } else if (category === '투개더대여소') {
                     markerImgSrc = "/static/svg/map_log/marker_togetthe.svg";
                 }
+                
+                // HTML 크기에 동적 변수(storeMarkerSize) 적용
                 var storeMarkerHtml = `
-                    <div style="width: 80px; height: 80px; pointer-events: none;">
+                    <div style="width: ${storeMarkerSize}px; height: ${storeMarkerSize}px; pointer-events: none;">
                         <img src="${markerImgSrc}" alt="${category}" style="width: 100%; height: 100%; object-fit: contain;">
                     </div>
                 `;
@@ -42,8 +59,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     title: store.name,
                     icon: {
                         content: storeMarkerHtml,
-                        size: new naver.maps.Size(80, 80),
-                        anchor: new naver.maps.Point(40, 40)
+                        // 네이버 지도 아이콘 크기에도 동적 변수 적용
+                        size: new naver.maps.Size(storeMarkerSize, storeMarkerSize),
+                        anchor: new naver.maps.Point(storeAnchor, storeAnchor)
                     }
                 });
             }
@@ -68,8 +86,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 var myPosition = new naver.maps.LatLng(lat, lng);
                 var heading = position.coords.heading || 0; 
 
+                // 발바닥 마커 크기에 동적 변수(myLocSize) 적용
                 var markerHtml = `
-                    <div style="transform: rotate(${heading}deg); width: 40px; height: 40px; transition: transform 0.3s ease-out; pointer-events: none;">
+                    <div style="transform: rotate(${heading}deg); width: ${myLocSize}px; height: ${myLocSize}px; transition: transform 0.3s ease-out; pointer-events: none;">
                         <img src="/static/svg/dog_paw.svg" style="width: 100%; height: 100%;">
                     </div>
                 `;
@@ -80,16 +99,16 @@ document.addEventListener("DOMContentLoaded", function() {
                         map: map,
                         icon: {
                             content: markerHtml,
-                            size: new naver.maps.Size(40, 40),
-                            anchor: new naver.maps.Point(20, 20)
+                            size: new naver.maps.Size(myLocSize, myLocSize),
+                            anchor: new naver.maps.Point(myLocAnchor, myLocAnchor)
                         }
                     });
                 } else {
                     myLocationMarker.setPosition(myPosition);
                     myLocationMarker.setIcon({
                         content: markerHtml,
-                        size: new naver.maps.Size(40, 40),
-                        anchor: new naver.maps.Point(20, 20)
+                        size: new naver.maps.Size(myLocSize, myLocSize),
+                        anchor: new naver.maps.Point(myLocAnchor, myLocAnchor)
                     });
                 }
 
@@ -99,8 +118,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     var distance = map.getProjection().getDistance(lastRecordedPosition, myPosition);
                     
                     if (distance > 5) { 
+                        // 발자국 궤적 마커 크기에 동적 변수(trailSize) 적용
                         var trailHtml = `
-                            <div style="transform: rotate(${heading}deg); width: 30px; height: 30px; opacity: 0.4; pointer-events: none;">
+                            <div style="transform: rotate(${heading}deg); width: ${trailSize}px; height: ${trailSize}px; opacity: 0.4; pointer-events: none;">
                                 <img src="/static/svg/dog_paw.svg" style="width: 100%; height: 100%;">
                             </div>
                         `;
@@ -110,8 +130,8 @@ document.addEventListener("DOMContentLoaded", function() {
                             map: map,
                             icon: {
                                 content: trailHtml,
-                                size: new naver.maps.Size(30, 30),
-                                anchor: new naver.maps.Point(15, 15)
+                                size: new naver.maps.Size(trailSize, trailSize),
+                                anchor: new naver.maps.Point(trailAnchor, trailAnchor)
                             }
                         });
 
