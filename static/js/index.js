@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     markerImgSrc = "/static/svg/map_log/marker_togetthe.svg";
                 }
                 var storeMarkerHtml = `
-                    <div style="width: 70px; height: 70px; pointer-events: none;">
+                    <div style="width: 80px; height: 80px; pointer-events: none;">
                         <img src="${markerImgSrc}" alt="${category}" style="width: 100%; height: 100%; object-fit: contain;">
                     </div>
                 `;
@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     title: store.name,
                     icon: {
                         content: storeMarkerHtml,
-                        size: new naver.maps.Size(70, 70),
-                        anchor: new naver.maps.Point(35, 35)
+                        size: new naver.maps.Size(80, 80),
+                        anchor: new naver.maps.Point(40, 40)
                     }
                 });
             }
