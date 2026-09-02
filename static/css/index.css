@@ -32,3 +32,16 @@ padding-bottom: 10px; text-align: left; font-size: 15px; overflow: hidden;}
 .store-wrapper.expanded .store-item { display: block !important; }
 .show-more-btn { background-color: white; border: 1px solid #ccc; border-radius: 20px; padding: 10px 24px; color: #555; cursor: pointer; font-size: 14px; font-weight: bold; width: 100%; box-sizing: border-box; 
 text-align: center; align-items: center; justify-content: center; display: flex; gap: 5px;}
+
+.summary-sheet{position:fixed; bottom: 0; left:50%; transform: translateX(-50%); width: 100%; max-width: 430px; background-color: white; 
+box-shadow: 0 -4px 16px rgba(0,0,0,0.04); border-radius: 20px 20px 0 0; z-index: 1001; padding-bottom: env(safe-area-inset-bottom); transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1); }
+.summary-sheet.show{transform: translateY(0);}
+.sheet-header{position: relative; display: flex; justify-content: center; align-items: center; margin-bottom: 20px; margin-top: 20px;}
+.sheet-handle{width: 36px; height: 4px; background-color: #e0e0e0; border-radius: 2px;}
+.close-btn{position: absolute; right: 30px; background: transparent; border: none; font-size: 20px; color: pointer; line-height: 1; font-weight: 700; cursor: pointer;}
+.sheet-content{padding: 10px 20px;}
+.content-01{display: flex; text-align: center; gap:8px; margin-bottom: 12px;}
+.content-01 h3, .content-01 .store-title{margin:0; line-height: 1;}
+.contetn-01 .category-badge, #modal-category{margin:0; line-height: 1;}
+
+.btn-navi{width: 100%;}

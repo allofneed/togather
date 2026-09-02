@@ -46,6 +46,32 @@
       {{ ui.render_section('카페·베이커리', '카페·베이커리')}}
       
     </div>
+    
+    <div id="store-summary-sheet" class="summary-sheet">
+      <div class="sheet-header">
+        <div class="sheet-handle"></div>
+        <button id="close-summary-btn" type="button" class="close-btn">&times;</button>
+      </div>
+
+      <div class="sheet-content">
+        <div class = "content-01">
+          <h3 class="store-title" id="modal-title">매장명</h3>
+          <div class="category-badge" id="modal-category">카테고리</div>
+        </div>
+
+        <div class="info-row">
+          <span class="icon">⏰</span>
+          <span id="modal-hours">영업시간 정보 없음</span>
+        </div>
+
+        <div class="btn-group">
+            <a id="modal-navi-btn" href="#" target="_blank" class="btn btn-navi">
+              길찾기
+            </a>
+        </div>
+      </div>
+
+    </div>
 </div>
 {% endblock %}
 
