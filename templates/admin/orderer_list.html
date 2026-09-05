@@ -35,7 +35,7 @@
     <td class="td-bike"></td>
     <td class="td-phone"></td>
     <td>
-      <button class="sms-btn">문자발송</button>
+      <button type="button" class="sms-btn" id="open-sms-btn">문자발송</button>
     </td>
     <td>
       <select class="status-select">
@@ -48,6 +48,7 @@
   </tr>
 </template>
 
+{% include 'modal/sms_modal.html'%}
 {% endblock %}
 
 {% block script %}
