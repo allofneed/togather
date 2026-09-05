@@ -16,6 +16,14 @@
     <button class="store-list-category" role="tab" aria-selected="false">{{ category }}</button>
     {% endfor %}
 </div>
+
+<div id = "store-list-wrapper">
+  {% for store in stores %}
+    {% include 'layout/store_card.html' %}
+  {% else %}
+    <p class="empty-message">아직 등록된 스토어가 없습니다.</p>
+  {% endfor %}
+</div>
 {% endblock %}
 
 
