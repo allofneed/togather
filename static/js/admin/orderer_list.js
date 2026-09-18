@@ -56,6 +56,7 @@ function renderTable(data) {
 
     clone.querySelector('.td-name').innerText = order.user_name || '-';
     clone.querySelector('.td-bike').innerText = order.bike_type || '-';
+    clone.querySelector('.td-quantity').innerText = order.quantity || '1';
     clone.querySelector('.td-phone').innerText = order.user_id || '-';
 
     const statusSelect = clone.querySelector('.status-select');
@@ -103,7 +104,6 @@ function createDateTabs() {
 
   const allButtons = [];
 
-  // [전체보기] 버튼 생성
   const allBtn = document.createElement('button');
   allBtn.innerText = "전체보기";
   allBtn.className = "date-btn active";
